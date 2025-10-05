@@ -191,11 +191,22 @@ button {
   position: relative;
   border-radius: 34px;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(9, 47, 104, 0.85), rgba(25, 118, 210, 0.78)), url('https://images.unsplash.com/photo-1473243339387-81e24ed4a82c?auto=format&fit=crop&w=1400&q=60') center/cover;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   box-shadow: 0 24px 44px rgba(4, 10, 32, 0.35);
 }
 
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(9, 47, 104, 0.85), rgba(25, 118, 210, 0.78));
+}
+
 .hero-inner {
+  position: relative;
+  z-index: 1;
   padding: clamp(2.6rem, 7vw, 4.8rem);
   display: grid;
   gap: 1.4rem;
@@ -304,7 +315,7 @@ button {
 .rooms-grid {
   display: grid;
   gap: 1.6rem;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .room-card {
@@ -312,8 +323,26 @@ button {
   border-radius: 22px;
   padding: 1.8rem 1.6rem;
   display: grid;
-  gap: 1rem;
+  gap: 1.2rem;
   box-shadow: 0 18px 32px rgba(13, 27, 42, 0.16);
+}
+
+.room-figure {
+  margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.room-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.room-body {
+  display: grid;
+  gap: 0.9rem;
 }
 
 .room-header {
@@ -410,29 +439,31 @@ button {
 
 .gallery-grid {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .gallery-card {
-  position: relative;
+  background: rgba(255, 255, 255, 0.92);
   border-radius: 20px;
-  padding: 2.4rem 1.4rem;
-  color: #f5fbff;
-  font-weight: 600;
-  line-height: 1.5;
-  background: linear-gradient(135deg, rgba(9, 47, 104, 0.78), rgba(25, 118, 210, 0.65));
-  box-shadow: 0 16px 32px rgba(4, 10, 32, 0.28);
+  overflow: hidden;
+  box-shadow: 0 16px 32px rgba(4, 10, 32, 0.18);
+  display: grid;
 }
 
-.gallery-card::after {
-  content: attr(data-index);
-  position: absolute;
-  top: 1rem;
-  right: 1.2rem;
-  font-size: 2rem;
-  font-weight: 700;
-  color: rgba(245, 251, 255, 0.18);
+.gallery-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-caption {
+  margin: 0;
+  padding: 1.2rem 1.4rem 1.4rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: rgba(13, 27, 42, 0.82);
 }
 
 .testimonials-grid {

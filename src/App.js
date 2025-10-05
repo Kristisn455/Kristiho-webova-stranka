@@ -1,6 +1,21 @@
 ﻿const h = window.React.createElement;
 const { useState } = window.React;
 
+const heroImage = 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80';
+
+const roomImages = {
+  poseidon: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
+  aurora: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80',
+  garden: 'https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=1200&q=80'
+};
+
+const galleryImages = {
+  terrace: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80',
+  lounge: 'https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=1200&q=80',
+  garden: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80',
+  sauna: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80'
+};
+
 const translations = {
   sk: {
     languageName: "Slovenčina",
@@ -15,188 +30,193 @@ const translations = {
     ],
     hero: {
       badge: "Penzión Didian",
-      title: "Vodopád oddychu v srdci Lysportu",
-      description: "Fiktívny penzión Didian prináša energiu legendárneho vodnopólistu do sveta pohostinnosti. Legendárny výhľad na fjord, autorské spa rituály a kuchyňa plná morských chutí vytvárajú miesto, kde sa regeneruje telo aj hlava.",
+      title: "Vodopád pokoja v srdci Lysportu",
+      description: "Penzión Didian je fiktívne útočisko inšpirované sústredeným duchom vodnopólového šampióna Didiana Geniceka. Panorámy na fjord, autorské wellness rituály a kuchyňa vedená oceánom vytvárajú pobyt, kde sa regenerujú športovci aj snílci.",
       highlights: [
-        "Sky spa s panoramatickým bazénom",
-        "Ekologické izby s inteligentnou reguláciou klímy",
-        "Kurátorované zážitky vo vodnom živle"
+        "Sky spa s výhľadom na fjord",
+        "Udržateľné suity s adaptívnou klímou",
+        "Program na mieru v elemente vody"
       ],
       ctaPrimary: "Rezervovať pobyt",
-      ctaSecondary: "Virtuálna prehliadka"
+      ctaSecondary: "Virtuálna prehliadka",
+      image: heroImage
     },
     about: {
-      title: "Pohostinnosť inšpirovaná výkonom",
-      text: "Penzión Didian vyrástol z Didianovej vášne pre tímového ducha. Každá izba rozpráva príbehy z ciest, každý servisný detail má rytmus víťazného zápasu. Stačí prísť a nechať sa unášať pokojom severného pobrežia.",
+      title: "Pohostinnosť s tímovým srdcom",
+      text: "Didian sme navrhli ako miesto, kde sa tímový duch stretáva s pokojom severného pobrežia. Každá suita pripomína rozhodujúci zápas, každý servisný detail nasleduje rytmus prílivu. Príďte, nadýchnite sa slaného vzduchu a nechajte sever spomaliť čas.",
       stats: [
         { label: "Rok otvorenia", value: "2026" },
-        { label: "Suites & izby", value: "18" },
+        { label: "Suity & izby", value: "18" },
         { label: "Wellness zóny", value: "4" },
-        { label: "Hodnotenie hostí", value: "4.9 / 5" }
+        { label: "Hodnotenie hostí", value: "4,9 / 5" }
       ],
-      note: "Stredobod rezortu je klubovňa „Captain's Lounge“ – Didianovo obľúbené miesto na taktické porady."
+      note: "Captain's Lounge zostáva Didianovým obľúbeným miestom na taktické porady a večerné platne."
     },
     rooms: {
-      title: "Izby navrhnuté pre regeneráciu",
-      subtitle: "Tri signatúrne kategórie, ktoré spájajú remeselný dizajn, komfort a šepot severného pobrežia.",
+      title: "Suity vytvorené na regeneráciu",
+      subtitle: "Tri signatúrne kategórie spájajú remeselný dizajn, špičkový komfort a šepot severného pobrežia.",
       items: [
         {
           name: "Suite Poseidon",
           size: "78 m²",
           sleeps: "2–4 hostia",
-          description: "Dvojpodlažný loft s výhľadom na prístav, súkromnou parnou saunou a galériou trofejí.",
+          description: "Dvojpodlažná suita s výhľadom na prístav, súkromnou parnou saunou a galériou trofejí.",
           perks: [
-            "Privátny concierge 24/7",
-            "Vínna skriňa s lokálnymi ročníkmi",
-            "Hudobná zóna s kurátorovanými playlistami"
+            "Privátny concierge tím 24/7",
+            "Vinotéka plná pobrežných ročníkov",
+            "Hudobná scéna s kurátorovanými playlistami"
           ],
-          price: "od 289 € / noc"
+          price: "od 289 € / noc",
+          image: roomImages.poseidon,
+          imageAlt: "Suite Poseidon s výhľadom na prístav"
         },
         {
           name: "Loft Aurora",
           size: "52 m²",
           sleeps: "2 hostia",
-          description: "Svetlá loftová izba pre páry, ktoré hľadajú vyváženie aktívneho programu a tichej večernej atmosféry.",
+          description: "Vzdušný loft pre páry, ktoré hľadajú rovnováhu medzi aktívnym dňom a pokojom večera.",
           perks: [
-            "Inteligentné osvetlenie podľa biorytmu",
+            "Svetelné scény podľa biorytmu",
             "Panoramatická vaňa z vulkanického kameňa",
-            "Raňajky servírované do izby"
+            "Raňajkový koš doručený do suity"
           ],
-          price: "od 189 € / noc"
+          price: "od 189 € / noc",
+          image: roomImages.aurora,
+          imageAlt: "Loft Aurora s panoramatickým oknom"
         },
         {
           name: "Garden Cabana",
           size: "46 m²",
           sleeps: "2–3 hostia",
-          description: "Samostatná kabína v bylinkovej záhrade so súkromnou terasou a ohniskom na večerné rozprávania.",
+          description: "Samostatná kabána v bylinkovej záhrade so súkromnou terasou a ohniskom na rozprávanie príbehov.",
           perks: [
-            "Bylinkové ritual kit na mieru",
-            "Súkromná outdoor sprcha",
+            "Bylinkový rituálny balíček na mieru",
+            "Vonkajšia dažďová sprcha pod borovicami",
             "Rezervované ležadlá pri lagúne"
           ],
-          price: "od 209 € / noc"
+          price: "od 209 € / noc",
+          image: roomImages.garden,
+          imageAlt: "Garden Cabana obklopená zeleňou"
         }
       ]
     },
     wellness: {
-      title: "Wellness rytmus",
-      description: "Priestor, kde voda tečie v Didianovom tempe. Striedajte kontrastné bazény, ceremoniálne sauny a relax v solných jaskyniach.",
+      title: "Wellness v rytme Didiana",
+      description: "Voda sa tu hýbe v Didianovom tempe. Striedajte kontrastné bazény, ceremoniálne sauny a meditácie v soľnej jaskyni pod vedením našich koučov.",
       features: [
-        {
-          title: "Sky Lagoon",
-          detail: "Infinity bazén so slanou vodou a „coach corner“ pre dychové tréningy."
-        },
-        {
-          title: "Nordic Heat Lab",
-          detail: "Sauny s ceremóniami v réžii wellness trénerov pripravených Didianom."
-        },
-        {
-          title: "Regeneračné štúdio",
-          detail: "Fyzio masáže pre športovcov, lymfodrenáže a personalizovaný strečing."
-        }
+        { title: "Sky Lagoon", detail: "Soľný infinity bazén s plávajúcimi platformami na dychové cvičenia." },
+        { title: "Nordic Heat Lab", detail: "Saunové ceremónie choreografované wellness tímom Didiana." },
+        { title: "Recovery Studio", detail: "Fyzioterapia pre športovcov, lymfodrenáž a šité strečingové bloky." }
       ]
     },
     dining: {
       title: "Kuchyňa s chuťou oceánu",
-      description: "Chef Lina komponuje menu z lokálnych fariem a ranného lovu. Každý chod ladí s Didianovými spomienkami na cestovanie po lige oceánov.",
+      description: "Šéfkuchárka Lina spolupracuje s prístavnými farmármi a rannými rybármi, aby na tanieri rozprávala príbehy z Ocean League.",
       features: [
-        {
-          title: "Restaurant Tidal",
-          detail: "Päťchodové degustácie s párovaním vín a živou hudbou pri krbe."
-        },
-        {
-          title: "Bar Brine",
-          detail: "Signature koktejly s morskou soľou a fermentovanými sirupmi."
-        },
-        {
-          title: "Sunrise Pantry",
-          detail: "Celodenný bar s funkčnými smoothies, studeným brew a remeselným pečivom."
-        }
+        { title: "Reštaurácia Tidal", detail: "Päťchodové degustácie s párovaním vín a živou hudbou pri krbe." },
+        { title: "Bar Brine", detail: "Autorské koktaily s morskou soľou, chaluhovými bittermi a fermentovanými sirupmi." },
+        { title: "Sunrise Pantry", detail: "Celodenný bar so funkčnými smoothie, cold brew a remeselným pečivom." }
       ]
     },
     experiences: {
       title: "Zážitky kurátorované posádkou",
-      description: "Či už chcete trénovať s Didianovým tímom alebo len počúvať hudbu v štýle prístavných nocí, náš tím skúseností pripraví program na mieru.",
+      description: "Náš tím pripraví itinerár na mieru – či už túžite po tréningu na otvorenej vode alebo poetických večeroch v prístave.",
       highlights: [
         {
           title: "Vodné dobrodružstvá",
           items: [
-            "Ranné plávanie v prístavnom bazéne s trénerom",
-            "Kajakovanie po nočných lagúnach so svetielkujúcimi riasami",
-            "Kurz taktiky vodného póla pre začiatočníkov"
+            "Ranné plávanie v prístave s bývalým ligovým kapitánom",
+            "Kajakovanie v bioluminiscenčných lagúnach",
+            "Úvod do taktiky vodného póla"
           ]
         },
         {
           title: "Pobrežná kultúra",
           items: [
-            "Výpravy za folklórom Lysportu",
-            "Workshop výroby soľných kvetov",
-            "Hudobné večery v Captain's Lounge"
+            "Komentované prechádzky folklórom Lysportu",
+            "Workshop tvorby soľných kvetov",
+            "Vinylové večery v Captain's Lounge"
           ]
         },
         {
           title: "Mind & Body",
           items: [
-            "Dycho cvičenia so športovým psychológom",
-            "Sound bath v solnej jaskyni",
-            "Privátne klavírne recitály na západ slnka"
+            "Dychové laboratóriá so športovým psychológom",
+            "Sound bath v soľnej jaskyni",
+            "Súkromné klavírne západy slnka"
           ]
         }
       ]
     },
     gallery: {
       title: "Atmosféra penziónu",
-      description: "Stačí pár okamihov, aby ste pochopili, prečo hostia hovoria o Didianovi ako o rezorte, ktorý pulzuje energiou i pokojom.",
-      captions: [
-        "Ranné hmlisté raňajky na terase Sky Lagoon",
-        "Captain's Lounge pripravená na večerné príbehy",
-        "Garden Cabana ukrytá v bylinkovej záhrade",
-        "Nordic Heat Lab počas ceremónie Aufguss"
+      description: "Obrázky prezradia, prečo hostia opisujú Didian ako spojenie energie a pokoja.",
+      images: [
+        {
+          image: galleryImages.terrace,
+          alt: "Raňajky na terase Sky Lagoon",
+          caption: "Ranné hmly sa prevaľujú cez terasu Sky Lagoon"
+        },
+        {
+          image: galleryImages.lounge,
+          alt: "Captain's Lounge pripravená na večer",
+          caption: "Captain's Lounge nachystaná na večerné rozprávanie"
+        },
+        {
+          image: galleryImages.garden,
+          alt: "Bylinková záhrada s chodníkom",
+          caption: "Garden Cabana ukrytá medzi aromatickými bylinkami"
+        },
+        {
+          image: galleryImages.sauna,
+          alt: "Sauna s ceremóniou Aufguss",
+          caption: "Nordic Heat Lab počas ceremoniálneho Aufgussu"
+        }
       ]
     },
     testimonials: {
       title: "Hlasy hostí",
       items: [
         {
-          quote: "Rytmus wellness ceremoniálov ma naladil na úplne inú vlnu. Penzión Didian je reset tela aj mysle.",
+          quote: "Tempo saunových ceremónií mi resetovalo tréningové nastavenie. Didian pôsobí ako aktívny regeneračný kemp.",
           name: "Tamara, triatlonistka",
           role: "Hosť z Prahy"
         },
         {
-          quote: "Každý detail v izbe pôsobil úprimne. Personál mi prichystal tréningový plán podľa môjho tempa.",
+          quote: "Každý detail v lofte Aurora bol premyslený, od playlistov po svetlo. Za noc som napísal tri skladby.",
           name: "Elias, hudobník",
           role: "Hosť z Berlína"
         },
         {
-          quote: "Gurmánske menu a večerné príbehy v lounge sú to, čo nás privádza späť. Cítime sa ako súčasť tímu.",
+          quote: "Vraciame sa kvôli kuchyni aj príbehom posádky. Je to jediné miesto, kde sa cítime ako členovia tímu.",
           name: "Marek & Petra",
           role: "Stáli hostia"
         }
       ]
     },
     callToAction: {
-      title: "Pripravte si vlastný scenár pobytu",
-      text: "Naplánujeme za vás všetko – od privátneho transferu cez wellness rituály až po večerný playlist. Stačí nás kontaktovať.",
+      title: "Vytvorte si vlastný scenár pobytu",
+      text: "Povedzte nám, ako sa chcete cítiť pri odchode. Zabezpečíme transfery, wellness rituály, tréningy aj večerný soundtrack.",
       primary: "Naplánovať pobyt",
       secondary: "Pozrieť dostupnosť"
     },
     contact: {
-      title: "Kontakt & dostupnosť",
-      description: "Hostí privítame 24/7. Concierge tím reaguje do 12 hodín.",
+      title: "Kontakt & príchod",
+      description: "Hostí vítame nepretržite. Odpoveď concierge tímu očakávajte do 12 hodín.",
       addressLabel: "Adresa",
       address: "Prístav Lysport 7, 842 10, Severné pobrežie",
-      phoneLabel: "Telefon",
+      phoneLabel: "Telefón",
       phone: "+421 900 123 456",
       emailLabel: "E-mail",
       email: "crew@penzion-didian.sk",
       hoursTitle: "Recepcia",
       hours: [
-        { day: "Pondelok – Nedeľa", hours: "00:00 – 24:00" }
+        { day: "Pondelok – Nedeľa", hours: "24 hodín denne" }
       ],
-      note: "Parkovanie pre hostí je kryté, so službou nabíjania elektromobilov."
+      note: "Kryté parkovanie zahŕňa nabíjanie elektromobilov a úschovu športových dosiek."
     },
     footer: {
-      note: "© 2025 Penzión Didian – fiktívny projekt inšpirovaný víziou Didiana Geniceka."
+      note: "© 2025 Penzión Didian – fiktívny koncept inšpirovaný Didianom Genicekom."
     }
   },
   cs: {
@@ -212,160 +232,165 @@ const translations = {
     ],
     hero: {
       badge: "Penzion Didian",
-      title: "Vodopád odpočinku v srdci Lysportu",
-      description: "Fiktivní penzion Didian přenáší energii legendárního vodního pólisty do světa pohostinnosti. Panoramatické výhledy na fjord, autorské spa rituály a kuchyně plná mořských chutí vytvářejí místo, kde se regeneruje tělo i hlava.",
+      title: "Vodopád klidu v srdci Lysportu",
+      description: "Penzion Didian je fiktivní útočiště inspirované soustředěním vodnopólového šampiona Didiana Geniceka. Panoramata fjordu, autorské wellness rituály a kuchyně vedená oceánem vytvářejí pobyt, kde regenerují sportovci i snílci.",
       highlights: [
-        "Sky spa s panoramatickým bazénem",
-        "Ekologické pokoje s chytrou regulací klimatu",
-        "Kurátorované zážitky ve vodním živlu"
+        "Sky spa s výhledem na fjord",
+        "Udržitelné suity s adaptivní klimatizací",
+        "Program na míru v elementu vody"
       ],
       ctaPrimary: "Rezervovat pobyt",
-      ctaSecondary: "Virtuální prohlídka"
+      ctaSecondary: "Virtuální prohlídka",
+      image: heroImage
     },
     about: {
-      title: "Pohostinnost inspirovaná výkonem",
-      text: "Penzion Didian vyrostl z Didianovy vášně pro týmového ducha. Každý pokoj vypráví cestovatelské příběhy, každý servisní detail má rytmus vítězného zápasu. Přijeďte a nechte se unášet klidem severního pobřeží.",
+      title: "Pohostinnost s týmovým srdcem",
+      text: "Didian jsme navrhli jako místo, kde se týmový duch potkává s klidem severního pobřeží. Každá suita připomíná rozhodující zápas, každý servisní detail následuje rytmus přílivu. Přijeďte, nadechněte se slaného vzduchu a nechte sever zpomalit čas.",
       stats: [
         { label: "Rok otevření", value: "2026" },
-        { label: "Suites & pokoje", value: "18" },
+        { label: "Suity & pokoje", value: "18" },
         { label: "Wellness zóny", value: "4" },
         { label: "Hodnocení hostů", value: "4,9 / 5" }
       ],
-      note: "Srdcem resortu je klubovna „Captain's Lounge“ – Didianovo oblíbené místo pro taktické porady."
+      note: "Captain's Lounge zůstává Didianovým oblíbeným místem pro taktické porady a večerní vinyl."
     },
     rooms: {
-      title: "Pokoje navržené pro regeneraci",
-      subtitle: "Tři signaturní kategorie spojují řemeslný design, komfort a šepot severního pobřeží.",
+      title: "Suity navržené pro regeneraci",
+      subtitle: "Tři signaturní kategorie spojují řemeslný design, špičkový komfort a šum severního pobřeží.",
       items: [
         {
           name: "Suite Poseidon",
           size: "78 m²",
           sleeps: "2–4 hosté",
-          description: "Dvoupodlažní loft s výhledem na přístav, soukromou parní saunou a galerií trofejí.",
+          description: "Dvoupodlažní suita s výhledem na přístav, soukromou parní saunou a galerií trofejí.",
           perks: [
-            "Privátní concierge 24/7",
-            "Vinotéka s lokálními ročníky",
-            "Hudební zóna s kurátorovanými playlisty"
+            "Privátní concierge tým 24/7",
+            "Vinotéka plná pobřežních ročníků",
+            "Hudební scéna s kurátorovanými playlisty"
           ],
-          price: "od 289 € / noc"
+          price: "od 289 € / noc",
+          image: roomImages.poseidon,
+          imageAlt: "Suite Poseidon s výhledem na přístav"
         },
         {
           name: "Loft Aurora",
           size: "52 m²",
           sleeps: "2 hosté",
-          description: "Světlý loft pro páry hledající rovnováhu aktivního programu a tiché večerní atmosféry.",
+          description: "Lehký loft pro páry hledající rovnováhu mezi aktivním dnem a klidným večerem.",
           perks: [
-            "Inteligentní osvětlení podle biorytmu",
+            "Světelné scény podle biorytmu",
             "Panoramatická vana z vulkanického kamene",
-            "Snídaně servírované na pokoj"
+            "Snídaňový koš doručený do suity"
           ],
-          price: "od 189 € / noc"
+          price: "od 189 € / noc",
+          image: roomImages.aurora,
+          imageAlt: "Loft Aurora s panoramatickým oknem"
         },
         {
           name: "Garden Cabana",
           size: "46 m²",
           sleeps: "2–3 hosté",
-          description: "Samostatná kabina v bylinkové zahradě se soukromou terasou a ohništěm pro večerní příběhy.",
+          description: "Samostatná cabana v bylinkové zahradě se soukromou terasou a ohništěm na příběhy.",
           perks: [
-            "Bylinkový rituální set na míru",
-            "Soukromá venkovní sprcha",
+            "Bylinkový rituální balíček na míru",
+            "Venkovní dešťová sprcha pod borovicemi",
             "Rezervovaná lehátka u laguny"
           ],
-          price: "od 209 € / noc"
+          price: "od 209 € / noc",
+          image: roomImages.garden,
+          imageAlt: "Garden Cabana obklopená zelení"
         }
       ]
     },
     wellness: {
-      title: "Wellness rytmus",
-      description: "Místo, kde voda proudí v Didianově tempu. Střídejte kontrastní bazény, ceremoniální sauny a relax v solných jeskyních.",
+      title: "Wellness v rytmu Didiana",
+      description: "Voda se tu pohybuje v Didianově tempu. Střídejte kontrastní bazény, ceremoniální sauny a meditace v solné jeskyni vedené našimi kouči.",
       features: [
-        {
-          title: "Sky Lagoon",
-          detail: "Infinity bazén se slanou vodou a „coach corner“ pro dechové tréninky."
-        },
-        {
-          title: "Nordic Heat Lab",
-          detail: "Sauny s ceremoniály v režii wellness trenérů, které připravil Didian."
-        },
-        {
-          title: "Regenerační studio",
-          detail: "Fyzio masáže pro sportovce, lymfodrenáže a personalizovaný strečink."
-        }
+        { title: "Sky Lagoon", detail: "Slaný infinity bazén s plovoucími plošinami na dechová cvičení." },
+        { title: "Nordic Heat Lab", detail: "Saunové ceremoniály choreografované wellness posádkou Didiana." },
+        { title: "Recovery Studio", detail: "Fyzioterapie pro sportovce, lymfodrenáž a šité strečinkové bloky." }
       ]
     },
     dining: {
       title: "Kuchyně s chutí oceánu",
-      description: "Šéfkuchařka Lina skládá menu z lokálních farem a ranních úlovků. Každý chod ladí s Didianovými cestovatelskými vzpomínkami na ligu oceánů.",
+      description: "Šéfkuchařka Lina spolupracuje s přístavními farmami a ranními rybáři, aby na talíři vyprávěla příběhy z Ocean League.",
       features: [
-        {
-          title: "Restaurant Tidal",
-          detail: "Pětichodové degustace s párováním vín a živou hudbou u krbu."
-        },
-        {
-          title: "Bar Brine",
-          detail: "Signature koktejly s mořskou solí a fermentovanými sirupy."
-        },
-        {
-          title: "Sunrise Pantry",
-          detail: "Celodenní bar s funkčními smoothie, cold brew a řemeslným pečivem."
-        }
+        { title: "Restaurace Tidal", detail: "Pěti chodové degustace s párováním vín a živou hudbou u krbu." },
+        { title: "Bar Brine", detail: "Autorské koktejly s mořskou solí, chaluhovými bittery a fermentovanými sirupy." },
+        { title: "Sunrise Pantry", detail: "Celodenní bar s funkčními smoothie, cold brew a řemeslným pečivem." }
       ]
     },
     experiences: {
       title: "Zážitky kurátorované posádkou",
-      description: "Ať už chcete trénovat s Didianovým týmem nebo poslouchat hudbu přístavních nocí, náš experience tým připraví program na míru.",
+      description: "Náš tým vám připraví itinerář na míru – ať toužíte po tréninku na otevřené vodě nebo po poetických večerech v přístavu.",
       highlights: [
         {
           title: "Vodní dobrodružství",
           items: [
-            "Ranní plavání v přístavním bazénu s trenérem",
-            "Noční kajak po lagunách se světélkujícími řasami",
-            "Kurz taktiky vodního póla pro začátečníky"
+            "Ranní plavání v přístavu s bývalým ligovým kapitánem",
+            "Kajak v bioluminiscenčních lagunách",
+            "Úvod do taktiky vodního póla"
           ]
         },
         {
           title: "Pobřežní kultura",
           items: [
-            "Výpravy za folklórem Lysportu",
+            "Komentované procházky folklórem Lysportu",
             "Workshop výroby solných květů",
-            "Hudební večery v Captain's Lounge"
+            "Vinylové večery v Captain's Lounge"
           ]
         },
         {
           title: "Mind & Body",
           items: [
-            "Dechová cvičení se sportovním psychologem",
+            "Dýchací laboratoře se sportovním psychologem",
             "Sound bath v solné jeskyni",
-            "Soukromé klavírní recitály při západu slunce"
+            "Soukromé klavírní západy slunce"
           ]
         }
       ]
     },
     gallery: {
       title: "Atmosféra penzionu",
-      description: "Stačí okamžik, abyste pochopili, proč hosté mluví o Didianu jako o resortu plném energie i klidu.",
-      captions: [
-        "Mlžné snídaně na terase Sky Lagoon",
-        "Captain's Lounge připravená na večerní příběhy",
-        "Garden Cabana ukrytá v bylinkové zahradě",
-        "Nordic Heat Lab během ceremoniálu Aufguss"
+      description: "Obrázky prozradí, proč hosté popisují Didian jako spojení energie a klidu.",
+      images: [
+        {
+          image: galleryImages.terrace,
+          alt: "Snídaně na terase Sky Lagoon",
+          caption: "Ranní mlha se válí přes terasu Sky Lagoon"
+        },
+        {
+          image: galleryImages.lounge,
+          alt: "Captain's Lounge připravená na večer",
+          caption: "Captain's Lounge nachystaná na večerní příběhy"
+        },
+        {
+          image: galleryImages.garden,
+          alt: "Bylinková zahrada s chodníkem",
+          caption: "Garden Cabana ukrytá mezi aromatickými bylinkami"
+        },
+        {
+          image: galleryImages.sauna,
+          alt: "Sauna během ceremoniálu Aufguss",
+          caption: "Nordic Heat Lab v průběhu saunového obřadu"
+        }
       ]
     },
     testimonials: {
       title: "Hlasy hostů",
       items: [
         {
-          quote: "Rytmus wellness ceremoniálů mě naladil na úplně jinou vlnu. Penzion Didian je restart těla i mysli.",
+          quote: "Tempo saunových ceremoniálů mi přenastavilo trénink. Didian působí jako aktivní regenerační kemp.",
           name: "Tamara, triatlonistka",
           role: "Host z Prahy"
         },
         {
-          quote: "Každý detail v pokoji působil upřímně. Personál mi připravil tréninkový plán podle mého tempa.",
+          quote: "Každý detail v loftu Aurora byl promyšlený, od playlistů po světlo. Za noc jsem napsal tři skladby.",
           name: "Elias, hudebník",
           role: "Host z Berlína"
         },
         {
-          quote: "Gurmánské menu a večerní příběhy v lounge nás přivádějí zpět. Cítíme se jako součást týmu.",
+          quote: "Vracíme se kvůli kuchyni i příběhům posádky. Je to jediné místo, kde se cítíme jako členové týmu.",
           name: "Marek & Petra",
           role: "Stálí hosté"
         }
@@ -373,13 +398,13 @@ const translations = {
     },
     callToAction: {
       title: "Vytvořte si vlastní scénář pobytu",
-      text: "Naplánujeme za vás vše – od privátního transferu přes wellness rituály až po večerní playlist. Stačí nás kontaktovat.",
+      text: "Řekněte nám, jak se chcete cítit při odjezdu. Zařídíme transfery, wellness rituály, tréninky i večerní soundtrack.",
       primary: "Naplánovat pobyt",
       secondary: "Zkontrolovat dostupnost"
     },
     contact: {
-      title: "Kontakt & dostupnost",
-      description: "Hosty vítáme 24/7. Concierge tým odpoví do 12 hodin.",
+      title: "Kontakt & příjezd",
+      description: "Hosty vítáme nepřetržitě. Odpověď concierge týmu čekejte do 12 hodin.",
       addressLabel: "Adresa",
       address: "Přístav Lysport 7, 842 10, Severní pobřeží",
       phoneLabel: "Telefon",
@@ -388,12 +413,12 @@ const translations = {
       email: "crew@penzion-didian.sk",
       hoursTitle: "Recepce",
       hours: [
-        { day: "Pondělí – Neděle", hours: "00:00 – 24:00" }
+        { day: "Pondělí – Neděle", hours: "24 hodin denně" }
       ],
-      note: "Parkování je kryté a nabízí nabíjení elektromobilů."
+      note: "Kryté parkování zahrnuje nabíjení elektromobilů i úschovu sportovního vybavení."
     },
     footer: {
-      note: "© 2025 Penzion Didian – fiktivní projekt inspirovaný vizí Didiana Geniceka."
+      note: "© 2025 Penzion Didian – fiktivní koncept inspirovaný Didianem Genicekem."
     }
   },
   de: {
@@ -409,160 +434,165 @@ const translations = {
     ],
     hero: {
       badge: "Pension Didian",
-      title: "Ein Wasserfall der Erholung im Herzen von Lysport",
-      description: "Die fiktive Pension Didian bringt die Energie des legendären Wasserballspielers in die Welt der Gastlichkeit. Panoramablicke auf den Fjord, kuratierte Spa-Rituale und eine Küche voller Meeresgeschmack schaffen einen Ort, an dem Körper und Geist regenerieren.",
+      title: "Ein Wasserfall der Ruhe im Herzen von Lysport",
+      description: "Die Pension Didian ist ein fiktiver Rückzugsort, inspiriert vom Fokus des Wasserball-Champions Didian Genicek. Fjordpanoramen, signierte Wellness-Rituale und eine ozeanorientierte Küche schaffen einen Aufenthalt, der Athleten und Träumer gleichermaßen regeneriert.",
       highlights: [
-        "Sky Spa mit Panoramabecken",
-        "Nachhaltige Zimmer mit smarter Klimasteuerung",
-        "Kuratiertes Programm rund um das Element Wasser"
+        "Sky Spa mit Blick auf den Fjord",
+        "Nachhaltige Suiten mit adaptivem Klima",
+        "Crew-kuratierte Wasser- und Kulturerlebnisse"
       ],
       ctaPrimary: "Aufenthalt buchen",
-      ctaSecondary: "Virtueller Rundgang"
+      ctaSecondary: "Virtuellen Rundgang starten",
+      image: heroImage
     },
     about: {
-      title: "Gastfreundschaft mit Wettkampfgeist",
-      text: "Die Pension Didian entstand aus Didians Leidenschaft für Teamgeist. Jedes Zimmer erzählt Reisegeschichten, jeder Service-Detail folgt dem Rhythmus eines siegreichen Spiels. Kommen Sie an und lassen Sie sich von der Ruhe der Nordküste tragen.",
+      title: "Gastfreundschaft mit Teamgeist",
+      text: "Didian wurde als Ort entworfen, an dem Teamgeist auf gelassene Nordküste trifft. Jede Suite erinnert an ein entscheidendes Spiel, jedes Servicedetail folgt dem Takt der Gezeiten. Kommen Sie an, atmen Sie die salzige Luft und lassen Sie die Zeit langsamer werden.",
       stats: [
         { label: "Eröffnungsjahr", value: "2026" },
         { label: "Suiten & Zimmer", value: "18" },
         { label: "Wellness-Zonen", value: "4" },
-        { label: "Gästebewertung", value: "4.9 / 5" }
+        { label: "Bewertung", value: "4,9 / 5" }
       ],
-      note: "Das Herz des Resorts ist die „Captain's Lounge“ – Didians Lieblingsplatz für Taktikbesprechungen."
+      note: "Die Captain's Lounge bleibt Didians Lieblingsraum für Strategie-Meetings und abendliche Vinyl-Sessions."
     },
     rooms: {
-      title: "Zimmer, die regenerieren",
-      subtitle: "Drei Signature-Kategorien verbinden Handwerksdesign, Komfort und das Flüstern der Nordküste.",
+      title: "Suiten für echte Regeneration",
+      subtitle: "Drei Signature-Kategorien verbinden Handwerksdesign, höchsten Komfort und das Flüstern der Nordküste.",
       items: [
         {
           name: "Suite Poseidon",
           size: "78 m²",
           sleeps: "2–4 Gäste",
-          description: "Zweistöckiges Loft mit Hafenblick, privatem Dampfbad und Trophäengalerie.",
+          description: "Zweigeschossige Suite mit Hafenblick, privatem Dampfbad und Trophäengalerie.",
           perks: [
-            "Privater Concierge 24/7",
-            "Weinschrank mit lokalen Jahrgängen",
-            "Musikzone mit kuratierten Playlists"
+            "Privates Concierge-Team rund um die Uhr",
+            "Weinkeller mit Küstenjahrgängen",
+            "Soundbühne mit kuratierten Playlists"
           ],
-          price: "ab 289 € / Nacht"
+          price: "ab 289 € / Nacht",
+          image: roomImages.poseidon,
+          imageAlt: "Suite Poseidon mit Blick auf den Hafen"
         },
         {
           name: "Loft Aurora",
           size: "52 m²",
           sleeps: "2 Gäste",
-          description: "Lichtdurchflutetes Loft für Paare, die Balance zwischen Aktivität und stillen Abenden suchen.",
+          description: "Lichtdurchflutetes Loft für Paare, die aktive Tage und ruhige Abende verbinden möchten.",
           perks: [
-            "Intelligente Beleuchtung nach Biorhythmus",
+            "Circadiane Lichtstimmungen",
             "Panoramabadewanne aus vulkanischem Stein",
-            "Frühstücksservice aufs Zimmer"
+            "Frühstückskorb direkt in die Suite"
           ],
-          price: "ab 189 € / Nacht"
+          price: "ab 189 € / Nacht",
+          image: roomImages.aurora,
+          imageAlt: "Loft Aurora mit weitem Fenster"
         },
         {
           name: "Garden Cabana",
           size: "46 m²",
           sleeps: "2–3 Gäste",
-          description: "Eigenständige Cabana im Kräutergarten mit privater Terrasse und Feuerstelle.",
+          description: "Freistehende Cabana im Kräutergarten mit privater Terrasse und Feuerstelle für Geschichten.",
           perks: [
             "Individuelles Kräuterritual-Set",
-            "Private Außendusche",
+            "Outdoor-Regendusche unter Kiefern",
             "Reservierte Liegen an der Lagune"
           ],
-          price: "ab 209 € / Nacht"
+          price: "ab 209 € / Nacht",
+          image: roomImages.garden,
+          imageAlt: "Garden Cabana umgeben von Kräutern"
         }
       ]
     },
     wellness: {
-      title: "Wellness im Takt",
-      description: "Ein Ort, an dem Wasser in Didians Tempo fließt. Wechseln Sie zwischen Kontrastbecken, Zeremonien-Saunen und Ruhe in der Salzgrotte.",
+      title: "Wellness im Didian-Takt",
+      description: "Hier bewegt sich das Wasser in Didians Tempo. Wechseln Sie zwischen Kontrastbecken, Zeremonien-Saunen und Meditationen in der Salzgrotte – begleitet von unserem Performance-Team.",
       features: [
-        {
-          title: "Sky Lagoon",
-          detail: "Infinity-Pool mit Salzwasser und „Coach Corner“ für Atemtrainings."
-        },
-        {
-          title: "Nordic Heat Lab",
-          detail: "Saunen mit Zeremonien unter Anleitung von Wellness-Coaches, kuratiert von Didian."
-        },
-        {
-          title: "Regenerationsstudio",
-          detail: "Sportmassagen, Lymphdrainagen und personalisierte Stretchings."
-        }
+        { title: "Sky Lagoon", detail: "Salzwasser-Infinity-Pool mit schwebenden Breathwork-Decks." },
+        { title: "Nordic Heat Lab", detail: "Saunazeremonien, choreografiert von Didians Wellness-Crew." },
+        { title: "Recovery Studio", detail: "Physiotherapie auf Athletenniveau, Lymphfluss und maßgeschneiderte Stretching-Sessions." }
       ]
     },
     dining: {
       title: "Küche mit Meeresnote",
-      description: "Chefköchin Lina komponiert Menüs aus lokalen Höfen und dem Fang des Morgens. Jeder Gang erinnert an Didians Reisen durch die Ocean League.",
+      description: "Chefköchin Lina arbeitet mit Hafenbauern und Morgenfischern, um Geschichten aus der Ocean League zu servieren.",
       features: [
-        {
-          title: "Restaurant Tidal",
-          detail: "Fünf-Gänge-Degustation mit Weinbegleitung und Live-Musik am Kamin."
-        },
-        {
-          title: "Bar Brine",
-          detail: "Signature-Cocktails mit Meersalz und fermentierten Sirupen."
-        },
-        {
-          title: "Sunrise Pantry",
-          detail: "Ganztagsbar mit funktionellen Smoothies, Cold Brew und handwerklichem Gebäck."
-        }
+        { title: "Restaurant Tidal", detail: "Fünf-Gänge-Menüs mit Weinbegleitung und Live-Musik am Kamin." },
+        { title: "Bar Brine", detail: "Signature-Cocktails mit Meersalz, Algenbittern und fermentierten Sirupen." },
+        { title: "Sunrise Pantry", detail: "Ganztags-Pantry mit funktionalen Smoothies, Cold Brew und handwerklichem Gebäck." }
       ]
     },
     experiences: {
-      title: "Erlebnisse mit Crew-Charakter",
-      description: "Ob Training mit Didians Team oder Hafenklänge bei Nacht – unser Experience-Team stellt ein Programm nach Ihren Wünschen zusammen.",
+      title: "Erlebnisse der Crew",
+      description: "Unser Team stellt jeden Tagesablauf individuell zusammen – ob Sie Offene-Wasser-Training oder poetische Hafenabende wünschen.",
       highlights: [
         {
           title: "Wasserabenteuer",
           items: [
-            "Morgenschwimmen im Hafenbecken mit Coach",
-            "Nacht-Kajak durch leuchtende Lagunen",
-            "Taktik-Workshop Wasserball für Einsteiger"
+            "Sonnenaufgangsschwimmen im Hafen mit ehemaligem Ligakapitän",
+            "Biolumineszenz-Kajak in den Lagunen",
+            "Einführung in die Taktik des Wasserballs"
           ]
         },
         {
           title: "Küstenkultur",
           items: [
-            "Ausflüge in den Lysport-Folklor",
-            "Workshop Salzblüten-Manufaktur",
-            "Musikabende in der Captain's Lounge"
+            "Erzählte Spaziergänge durch die Folklore von Lysport",
+            "Workshop zur Herstellung von Salzblüten",
+            "Vinylabende in der Captain's Lounge"
           ]
         },
         {
           title: "Mind & Body",
           items: [
-            "Atemtraining mit Sportpsychologe",
+            "Atemarbeit mit dem Sportpsychologen",
             "Klangbad in der Salzgrotte",
-            "Private Klavierabende zum Sonnenuntergang"
+            "Private Klavierabende mit Fjordblick"
           ]
         }
       ]
     },
     gallery: {
       title: "Atmosphäre der Pension",
-      description: "Nur wenige Eindrücke zeigen, warum Gäste Didian als Ort voller Energie und Ruhe beschreiben.",
-      captions: [
-        "Neblige Frühstücke auf der Sky-Lagoon-Terrasse",
-        "Captain's Lounge bereit für Abendgeschichten",
-        "Garden Cabana im Kräutergarten",
-        "Nordic Heat Lab während der Aufguss-Zeremonie"
+      description: "Diese Eindrücke zeigen, warum Gäste Didian als Mischung aus Energie und Ruhe beschreiben.",
+      images: [
+        {
+          image: galleryImages.terrace,
+          alt: "Frühstücksterrasse der Sky Lagoon",
+          caption: "Morgendlicher Nebel über der Sky-Lagoon-Terrasse"
+        },
+        {
+          image: galleryImages.lounge,
+          alt: "Captain's Lounge am Abend",
+          caption: "Captain's Lounge bereit für Geschichten bei Kerzenlicht"
+        },
+        {
+          image: galleryImages.garden,
+          alt: "Kräutergartenpfad mit Cabana",
+          caption: "Garden Cabana versteckt zwischen aromatischen Kräutern"
+        },
+        {
+          image: galleryImages.sauna,
+          alt: "Sauna während einer Aufguss-Zeremonie",
+          caption: "Nordic Heat Lab im Moment des Aufgusses"
+        }
       ]
     },
     testimonials: {
       title: "Stimmen der Gäste",
       items: [
         {
-          quote: "Der Rhythmus der Wellness-Zeremonien brachte mich auf eine andere Welle. Pension Didian ist Reset für Körper und Geist.",
+          quote: "Der Rhythmus der Saunarituale hat meinen Trainingsfokus neu justiert. Didian fühlt sich wie aktives Recovery an.",
           name: "Tamara, Triathletin",
           role: "Gast aus Prag"
         },
         {
-          quote: "Jedes Detail im Zimmer fühlte sich ehrlich an. Das Team stellte mir einen Trainingsplan nach meinem Tempo zusammen.",
+          quote: "Jedes Detail im Aurora Loft war stimmig, von der Playlist bis zum Licht. Ich habe in einer Nacht drei Songs geschrieben.",
           name: "Elias, Musiker",
           role: "Gast aus Berlin"
         },
         {
-          quote: "Das Gourmetmenü und die Geschichten in der Lounge holen uns jedes Jahr zurück. Wir fühlen uns wie Teil der Crew.",
+          quote: "Wir kommen wegen der Küche und der Geschichten der Crew zurück. Hier fühlen wir uns wie Ehrenmitglieder des Teams.",
           name: "Marek & Petra",
           role: "Stammgäste"
         }
@@ -570,13 +600,13 @@ const translations = {
     },
     callToAction: {
       title: "Gestalten Sie Ihr Aufenthaltsdrehbuch",
-      text: "Wir planen alles – privater Transfer, Wellnessrituale, Abendplaylist. Kontaktieren Sie uns einfach.",
+      text: "Sagen Sie uns, wie Sie abreisen möchten. Wir organisieren Transfers, Spa-Rituale, Coachings und Abend-Soundtracks.",
       primary: "Aufenthalt planen",
       secondary: "Verfügbarkeit prüfen"
     },
     contact: {
-      title: "Kontakt & Erreichbarkeit",
-      description: "Wir heißen Gäste rund um die Uhr willkommen. Das Concierge-Team antwortet innerhalb von 12 Stunden.",
+      title: "Kontakt & Anreise",
+      description: "Wir heißen Gäste rund um die Uhr willkommen. Eine Antwort unseres Concierge-Teams erfolgt innerhalb von 12 Stunden.",
       addressLabel: "Adresse",
       address: "Hafen Lysport 7, 842 10, Nordküste",
       phoneLabel: "Telefon",
@@ -585,12 +615,12 @@ const translations = {
       email: "crew@penzion-didian.sk",
       hoursTitle: "Rezeption",
       hours: [
-        { day: "Montag – Sonntag", hours: "00:00 – 24:00" }
+        { day: "Montag – Sonntag", hours: "24 Stunden" }
       ],
-      note: "Überdachte Parkplätze mit Ladestationen für E-Fahrzeuge stehen bereit."
+      note: "Überdachte Parkplätze bieten Ladestationen für E-Fahrzeuge und Stauraum für Wassersportgeräte."
     },
     footer: {
-      note: "© 2025 Pension Didian – fiktives Projekt inspiriert von Didian Genicek."
+      note: "© 2025 Pension Didian – fiktives Konzept inspiriert von Didian Genicek."
     }
   },
   en: {
@@ -607,41 +637,44 @@ const translations = {
     hero: {
       badge: "Didian Guesthouse",
       title: "A waterfall of calm in the heart of Lysport",
-      description: "The fictional Didian Guesthouse channels the energy of a legendary water polo captain into hospitality. Fjord panoramas, signature spa rituals and an ocean-driven kitchen create a place where body and mind recharge.",
+      description: "Didian Guesthouse is a fictional retreat inspired by the focus of water polo champion Didian Genicek. Fjord panoramas, signature wellness rituals, and an ocean-forward kitchen shape a stay where athletes and dreamers restore in equal measure.",
       highlights: [
-        "Sky spa with panoramic saltwater pool",
-        "Eco-conscious suites with intelligent climate",
-        "Crew-curated adventures on and around the water"
+        "Sky spa overlooking the fjord",
+        "Sustainable suites with adaptive climate",
+        "Crew-curated water and culture adventures"
       ],
       ctaPrimary: "Book your stay",
-      ctaSecondary: "Take a virtual tour"
+      ctaSecondary: "Take a virtual tour",
+      image: heroImage
     },
     about: {
       title: "Hospitality with a competitive heartbeat",
-      text: "Didian built this retreat around his passion for team spirit. Every suite tells travel stories, every service touch follows the rhythm of a winning match. Arrive and let the calm of the northern shoreline carry you.",
+      text: "We shaped Didian as a place where team spirit meets unhurried coastal living. Every suite nods to a decisive match, every service ritual follows the rhythm of the tide. Arrive, breathe in the salt air, and let the north shore slow time for you.",
       stats: [
         { label: "Opening year", value: "2026" },
         { label: "Suites & rooms", value: "18" },
         { label: "Wellness zones", value: "4" },
         { label: "Guest rating", value: "4.9 / 5" }
       ],
-      note: "At the centre stands the Captain's Lounge — Didian's favourite space for strategy sessions."
+      note: "Captain's Lounge remains Didian's favourite room for strategy huddles and evening vinyl."
     },
     rooms: {
       title: "Suites designed for regeneration",
-      subtitle: "Three signature categories combine crafted design, comfort and the whisper of the northern coast.",
+      subtitle: "Three signature categories combine crafted design, generous comfort, and the whisper of the northern coast.",
       items: [
         {
           name: "Poseidon Suite",
           size: "78 m²",
           sleeps: "2–4 guests",
-          description: "A two-level loft overlooking the harbour with a private steam sauna and trophy gallery.",
+          description: "A two-level suite overlooking the harbour with a private steam sauna and trophy gallery.",
           perks: [
-            "24/7 private concierge",
-            "Wine library with local vintages",
-            "Sound zone with curated playlists"
+            "Private concierge team on call 24/7",
+            "Wine cellar stocked with coastal vintages",
+            "Immersive sound stage with curated playlists"
           ],
-          price: "from €289 / night"
+          price: "from €289 / night",
+          image: roomImages.poseidon,
+          imageAlt: "Poseidon Suite looking over the harbour"
         },
         {
           name: "Aurora Loft",
@@ -649,11 +682,13 @@ const translations = {
           sleeps: "2 guests",
           description: "An airy loft for couples balancing active days with serene evenings.",
           perks: [
-            "Circadian lighting scenes",
-            "Panoramic tub carved from volcanic stone",
-            "Breakfast trays delivered to the suite"
+            "Circadian lighting presets",
+            "Panoramic soaking tub carved from volcanic stone",
+            "Breakfast hamper delivered to the suite"
           ],
-          price: "from €189 / night"
+          price: "from €189 / night",
+          image: roomImages.aurora,
+          imageAlt: "Aurora Loft with sweeping window"
         },
         {
           name: "Garden Cabana",
@@ -661,76 +696,60 @@ const translations = {
           sleeps: "2–3 guests",
           description: "A standalone cabana in the herb garden with a private terrace and storytelling firepit.",
           perks: [
-            "Tailored herb ritual kit",
-            "Private outdoor rain shower",
-            "Reserved loungers at the lagoon"
+            "Personalised herb ritual kit",
+            "Outdoor rainfall shower beneath the pines",
+            "Reserved lagoon loungers at sunrise"
           ],
-          price: "from €209 / night"
+          price: "from €209 / night",
+          image: roomImages.garden,
+          imageAlt: "Garden Cabana surrounded by greenery"
         }
       ]
     },
     wellness: {
-      title: "Wellness in rhythm",
-      description: "Water moves here at Didian's tempo. Alternate contrast pools, ceremonial saunas and deep rest in salt caves.",
+      title: "Wellness in Didian's rhythm",
+      description: "Water moves here at Didian's tempo. Alternate contrast pools, ceremonial saunas, and salt cave meditations led by our performance coaches.",
       features: [
-        {
-          title: "Sky Lagoon",
-          detail: "Saltwater infinity pool with a coach corner for breath-training sessions."
-        },
-        {
-          title: "Nordic Heat Lab",
-          detail: "Saunas guided by wellness coaches following Didian's rituals."
-        },
-        {
-          title: "Recovery Studio",
-          detail: "Athlete-grade physio massages, lymphatic therapy and personalised stretching."
-        }
+        { title: "Sky Lagoon", detail: "Saltwater infinity pool with floating breathwork decks." },
+        { title: "Nordic Heat Lab", detail: "Sauna ceremonies choreographed by Didian's wellness crew." },
+        { title: "Recovery Studio", detail: "Athlete-grade physiotherapy, lymphatic flow, and tailored stretching blocks." }
       ]
     },
     dining: {
-      title: "Cuisine tasting of the ocean",
-      description: "Chef Lina composes menus from coastal farms and morning catches. Each course echoes Didian's journeys across the Ocean League.",
+      title: "Cuisine with a taste of the ocean",
+      description: "Head chef Lina works with harbourside growers and morning fishermen to plate stories from the Ocean League.",
       features: [
-        {
-          title: "Tidal Restaurant",
-          detail: "Five-course degustations with wine pairings and live fireplace music."
-        },
-        {
-          title: "Brine Bar",
-          detail: "Signature cocktails infused with sea salt and fermented syrups."
-        },
-        {
-          title: "Sunrise Pantry",
-          detail: "All-day counter with functional smoothies, cold brew and artisan pastries."
-        }
+        { title: "Tidal Restaurant", detail: "Five-course tasting menus with wine pairings and live fireplace sets." },
+        { title: "Brine Bar", detail: "Signature cocktails infused with sea salt, kelp bitters, and fermented syrups." },
+        { title: "Sunrise Pantry", detail: "All-day pantry serving functional smoothies, cold brew, and artisan pastries." }
       ]
     },
     experiences: {
       title: "Experiences curated by the crew",
-      description: "Train with Didian's team or tune into harbour-night sounds — our experience crew tailors the program to you.",
+      description: "Our hosts tailor each itinerary, whether you crave open-water training or poetic nights in the harbour.",
       highlights: [
         {
           title: "Water adventures",
           items: [
-            "Sunrise harbour swim with a coach",
-            "Bioluminescent lagoon night kayaking",
-            "Water polo tactics lab for beginners"
+            "Sunrise harbour swim coached by a former league captain",
+            "Bioluminescent lagoon kayaking beneath the northern lights",
+            "Introductory water polo tactics clinic"
           ]
         },
         {
           title: "Coastal culture",
           items: [
-            "Guided walks through Lysport folklore",
-            "Salt flower crafting workshop",
+            "Story-led walks through Lysport folklore",
+            "Salt-flower crafting workshop with local artisans",
             "Vinyl evenings inside the Captain's Lounge"
           ]
         },
         {
           title: "Mind & body",
           items: [
-            "Breathwork with a sports psychologist",
-            "Sound bath in the salt cave",
-            "Private piano sunsets"
+            "Breathwork labs with the sports psychologist",
+            "Sound baths inside the salt cave",
+            "Private piano sunsets overlooking the fjord"
           ]
         }
       ]
@@ -738,28 +757,44 @@ const translations = {
     gallery: {
       title: "Atmosphere snapshots",
       description: "A glimpse of why guests describe Didian as equal parts vibrant energy and restorative calm.",
-      captions: [
-        "Mist-filled breakfasts on the Sky Lagoon terrace",
-        "Captain's Lounge ready for evening storytelling",
-        "Garden Cabana nestled between herbal paths",
-        "Nordic Heat Lab mid Aufguss ritual"
+      images: [
+        {
+          image: galleryImages.terrace,
+          alt: "Breakfast mist on the Sky Lagoon terrace",
+          caption: "Breakfast mist rolling across the Sky Lagoon terrace"
+        },
+        {
+          image: galleryImages.lounge,
+          alt: "Captain's Lounge set for evening stories",
+          caption: "Captain's Lounge set for evening storytelling"
+        },
+        {
+          image: galleryImages.garden,
+          alt: "Garden path lined with herbs",
+          caption: "Garden Cabana hidden between aromatic herbs"
+        },
+        {
+          image: galleryImages.sauna,
+          alt: "Sauna during an Aufguss ceremony",
+          caption: "Nordic Heat Lab mid Aufguss ritual"
+        }
       ]
     },
     testimonials: {
       title: "Guest voices",
       items: [
         {
-          quote: "The cadence of the wellness ceremonies tuned me to a new wave. Didian is a reset for body and mind.",
+          quote: "The cadence of the sauna ceremonies reset my training mindset. Didian feels like an active recovery camp.",
           name: "Tamara, triathlete",
           role: "Guest from Prague"
         },
         {
-          quote: "Every detail felt intentional. The team created a training flow that matched my tempo.",
+          quote: "Every detail in the Aurora Loft was intentional, from the playlists to the lighting. I wrote three songs in one night.",
           name: "Elias, musician",
           role: "Guest from Berlin"
         },
         {
-          quote: "Gourmet dinners and the storytelling evenings keep bringing us back. We feel like part of the crew.",
+          quote: "We return for the kitchen and the crew's stories. It's the only place where we feel like honorary teammates.",
           name: "Marek & Petra",
           role: "Returning guests"
         }
@@ -767,13 +802,13 @@ const translations = {
     },
     callToAction: {
       title: "Craft your own stay script",
-      text: "We arrange everything — private transfers, spa rituals, evening playlists. Reach out and we will choreograph the rest.",
+      text: "Tell us how you want to feel when you depart. We'll arrange transfers, spa rituals, coaching sessions, and evening soundtracks.",
       primary: "Plan my stay",
       secondary: "Check availability"
     },
     contact: {
       title: "Contact & arrival",
-      description: "We welcome guests 24/7. The concierge crew answers within 12 hours.",
+      description: "We welcome guests around the clock. Expect a response from our concierge crew within 12 hours.",
       addressLabel: "Address",
       address: "Harbour Lysport 7, 842 10, Northern Coast",
       phoneLabel: "Phone",
@@ -784,10 +819,10 @@ const translations = {
       hours: [
         { day: "Monday – Sunday", hours: "24 hours" }
       ],
-      note: "Covered parking with EV charging is included for guests."
+      note: "Covered parking includes EV charging and storage for boards and paddles."
     },
     footer: {
-      note: "© 2025 Didian Guesthouse – a fictional concept inspired by Didian Genicek."
+      note: "© 2025 Didian Guesthouse – fictional concept inspired by Didian Genicek."
     }
   },
   es: {
@@ -804,159 +839,164 @@ const translations = {
     hero: {
       badge: "Pensión Didian",
       title: "Una cascada de calma en el corazón de Lysport",
-      description: "La pensión ficticia Didian canaliza la energía del legendario capitán de waterpolo hacia la hospitalidad. Panorámicas del fiordo, rituales de spa de autor y una cocina guiada por el océano crean un lugar donde cuerpo y mente se recargan.",
+      description: "La Pensión Didian es un refugio ficticio inspirado en la concentración del campeón de waterpolo Didian Genicek. Las panorámicas del fiordo, los rituales wellness de autor y una cocina guiada por el océano crean una estancia donde se recargan atletas y soñadores.",
       highlights: [
-        "Sky spa con piscina panorámica de agua salada",
-        "Suites eco-conscientes con clima inteligente",
-        "Experiencias curadas por la tripulación alrededor del agua"
+        "Sky spa con vistas al fiordo",
+        "Suites sostenibles con clima adaptable",
+        "Experiencias de agua y cultura curadas por la tripulación"
       ],
       ctaPrimary: "Reservar estancia",
-      ctaSecondary: "Tour virtual"
+      ctaSecondary: "Tour virtual",
+      image: heroImage
     },
     about: {
       title: "Hospitalidad con pulso competitivo",
-      text: "Didian construyó este refugio a partir de su pasión por el espíritu de equipo. Cada suite cuenta historias de viaje y cada detalle de servicio sigue el ritmo de un partido ganador. Llegue y déjese llevar por la calma de la costa norte.",
+      text: "Diseñamos Didian como un lugar donde el espíritu de equipo se encuentra con la vida pausada de la costa norte. Cada suite recuerda a un partido decisivo y cada detalle de servicio sigue el ritmo de la marea. Llegue, respire el aire salado y deje que el norte desacelere el tiempo.",
       stats: [
         { label: "Año de apertura", value: "2026" },
         { label: "Suites y habitaciones", value: "18" },
         { label: "Zonas de wellness", value: "4" },
-        { label: "Valoración de huéspedes", value: "4,9 / 5" }
+        { label: "Valoración", value: "4,9 / 5" }
       ],
-      note: "El corazón del resort es la Captain's Lounge, el lugar favorito de Didian para sus charlas estratégicas."
+      note: "La Captain's Lounge sigue siendo la sala favorita de Didian para reuniones estratégicas y vinilos nocturnos."
     },
     rooms: {
-      title: "Suites diseñadas para regenerar",
-      subtitle: "Tres categorías insignia que combinan diseño artesanal, confort y el susurro de la costa norte.",
+      title: "Suites pensadas para regenerar",
+      subtitle: "Tres categorías insignia combinan diseño artesanal, confort generoso y el murmullo de la costa norte.",
       items: [
         {
           name: "Suite Poseidón",
           size: "78 m²",
           sleeps: "2–4 huéspedes",
-          description: "Loft de dos niveles con vista al puerto, sauna de vapor privada y galería de trofeos.",
+          description: "Suite dúplex con vistas al puerto, sauna de vapor privada y galería de trofeos.",
           perks: [
-            "Conserje privado 24/7",
-            "Vinoteca con añadas locales",
-            "Zona musical con playlists curadas"
+            "Equipo de concierge 24/7",
+            "Bodega con añadas costeras",
+            "Escenario sonoro con playlists curadas"
           ],
-          price: "desde 289 € / noche"
+          price: "desde 289 € / noche",
+          image: roomImages.poseidon,
+          imageAlt: "Suite Poseidón con vista al puerto"
         },
         {
           name: "Loft Aurora",
           size: "52 m²",
           sleeps: "2 huéspedes",
-          description: "Loft luminoso para parejas que buscan equilibrar días activos con noches serenas.",
+          description: "Loft luminoso para parejas que equilibran días activos con noches serenas.",
           perks: [
-            "Iluminación circadiana",
-            "Bañera panorámica de piedra volcánica",
-            "Desayunos servidos en la suite"
+            "Escenas de luz circadiana",
+            "Bañera panorámica tallada en piedra volcánica",
+            "Canasta de desayuno servida en la suite"
           ],
-          price: "desde 189 € / noche"
+          price: "desde 189 € / noche",
+          image: roomImages.aurora,
+          imageAlt: "Loft Aurora con ventana panorámica"
         },
         {
           name: "Garden Cabana",
           size: "46 m²",
           sleeps: "2–3 huéspedes",
-          description: "Cabina independiente en el jardín de hierbas con terraza privada y fogata para contar historias.",
+          description: "Cabina independiente en el jardín de hierbas con terraza privada y fogata para historias.",
           perks: [
-            "Kit ritual de hierbas personalizado",
-            "Ducha exterior privada",
+            "Kit de ritual de hierbas personalizado",
+            "Ducha de lluvia exterior bajo los pinos",
             "Hamacas reservadas junto a la laguna"
           ],
-          price: "desde 209 € / noche"
+          price: "desde 209 € / noche",
+          image: roomImages.garden,
+          imageAlt: "Garden Cabana rodeada de vegetación"
         }
       ]
     },
     wellness: {
-      title: "Bienestar a ritmo propio",
-      description: "Aquí el agua fluye al ritmo de Didian. Alterne piscinas de contraste, saunas ceremoniales y descanso profundo en cuevas de sal.",
+      title: "Bienestar al ritmo de Didian",
+      description: "Aquí el agua fluye al ritmo de Didian. Alterne piscinas de contraste, saunas ceremoniales y meditaciones en la cueva de sal guiadas por nuestros coaches.",
       features: [
-        {
-          title: "Sky Lagoon",
-          detail: "Piscina infinita de agua salada con esquina de entrenamiento de respiración."
-        },
-        {
-          title: "Nordic Heat Lab",
-          detail: "Saunas con ceremonias guiadas por entrenadores de wellness formados por Didian."
-        },
-        {
-          title: "Estudio Recovery",
-          detail: "Masajes de fisioterapia deportiva, drenaje linfático y estiramientos personalizados."
-        }
+        { title: "Sky Lagoon", detail: "Piscina infinita de agua salada con plataformas flotantes para breathwork." },
+        { title: "Nordic Heat Lab", detail: "Ceremonias de sauna coreografiadas por el equipo wellness de Didian." },
+        { title: "Recovery Studio", detail: "Fisioterapia de nivel atleta, drenaje linfático y bloques de estiramiento personalizados." }
       ]
     },
     dining: {
       title: "Cocina con sabor a océano",
-      description: "La chef Lina compone menús con granjas costeras y la captura matutina. Cada plato refleja los viajes de Didian por la Liga del Océano.",
+      description: "La chef Lina trabaja con productores del puerto y pescadores madrugadores para servir historias de la Ocean League.",
       features: [
-        {
-          title: "Restaurante Tidal",
-          detail: "Degustaciones de cinco tiempos con maridaje de vinos y música en vivo junto al fuego."
-        },
-        {
-          title: "Bar Brine",
-          detail: "Cócteles de autor con sal marina y siropes fermentados."
-        },
-        {
-          title: "Sunrise Pantry",
-          detail: "Bar todo el día con smoothies funcionales, cold brew y repostería artesanal."
-        }
+        { title: "Restaurante Tidal", detail: "Degustaciones de cinco tiempos con maridaje de vinos y música en vivo junto al fuego." },
+        { title: "Bar Brine", detail: "Cócteles de autor con sal marina, bitters de algas y siropes fermentados." },
+        { title: "Sunrise Pantry", detail: "Bar abierto todo el día con smoothies funcionales, cold brew y repostería artesanal." }
       ]
     },
     experiences: {
       title: "Experiencias curadas por la tripulación",
-      description: "Entrene con el equipo de Didian o sintonice los sonidos nocturnos del puerto: nuestro crew diseña el programa a su medida.",
+      description: "Nuestros anfitriones diseñan cada itinerario, ya sea que busque entrenamiento en aguas abiertas o noches poéticas en el puerto.",
       highlights: [
         {
           title: "Aventuras acuáticas",
           items: [
-            "Natación al amanecer en el puerto con entrenador",
-            "Kayak nocturno en lagunas bioluminiscentes",
-            "Laboratorio de táctica de waterpolo para principiantes"
+            "Natación al amanecer en el puerto con un ex capitán de liga",
+            "Kayak en lagunas bioluminiscentes bajo las luces del norte",
+            "Clínica introductoria de táctica de waterpolo"
           ]
         },
         {
           title: "Cultura costera",
           items: [
-            "Rutas guiadas por el folclore de Lysport",
-            "Taller de flor de sal",
-            "Noches musicales en la Captain's Lounge"
+            "Paseos narrados por el folclore de Lysport",
+            "Taller de elaboración de flor de sal",
+            "Noches de vinilos en la Captain's Lounge"
           ]
         },
         {
-          title: "Mente y cuerpo",
+          title: "Mind & Body",
           items: [
-            "Respiración con psicólogo deportivo",
-            "Baño de sonido en la cueva de sal",
-            "Recitales privados de piano al atardecer"
+            "Laboratorios de respiración con el psicólogo deportivo",
+            "Sound bath en la cueva de sal",
+            "Atardeceres privados de piano frente al fiordo"
           ]
         }
       ]
     },
     gallery: {
       title: "Postales del ambiente",
-      description: "Basta un vistazo para entender por qué los huéspedes describen a Didian como pura energía y calma a la vez.",
-      captions: [
-        "Desayunos brumosos en la terraza de Sky Lagoon",
-        "Captain's Lounge lista para las historias nocturnas",
-        "Garden Cabana escondida entre senderos de hierbas",
-        "Nordic Heat Lab durante un ritual Aufguss"
+      description: "Un vistazo basta para entender por qué los huéspedes describen Didian como energía vibrante y calma reparadora.",
+      images: [
+        {
+          image: galleryImages.terrace,
+          alt: "Desayuno con niebla en la terraza Sky Lagoon",
+          caption: "La niebla matutina envuelve la terraza de Sky Lagoon"
+        },
+        {
+          image: galleryImages.lounge,
+          alt: "Captain's Lounge lista para la noche",
+          caption: "Captain's Lounge preparada para historias vespertinas"
+        },
+        {
+          image: galleryImages.garden,
+          alt: "Sendero de jardín aromático",
+          caption: "Garden Cabana escondida entre hierbas aromáticas"
+        },
+        {
+          image: galleryImages.sauna,
+          alt: "Sauna durante un ritual Aufguss",
+          caption: "Nordic Heat Lab en pleno ritual Aufguss"
+        }
       ]
     },
     testimonials: {
       title: "Voces de los huéspedes",
       items: [
         {
-          quote: "El ritmo de las ceremonias wellness me llevó a otra frecuencia. Didian es un reset para cuerpo y mente.",
+          quote: "El ritmo de las ceremonias de sauna reajustó mi mente de entrenamiento. Didian se siente como un campamento de recuperación activa.",
           name: "Tamara, triatleta",
           role: "Huésped de Praga"
         },
         {
-          quote: "Cada detalle se sentía auténtico. El equipo creó un plan de entrenamiento a mi medida.",
+          quote: "Cada detalle del Loft Aurora fue intencional, desde las playlists hasta la luz. Escribí tres canciones en una noche.",
           name: "Elias, músico",
           role: "Huésped de Berlín"
         },
         {
-          quote: "La gastronomía y las historias en la lounge nos hacen volver. Nos sentimos parte de la tripulación.",
+          quote: "Volvemos por la cocina y las historias de la tripulación. Es el único lugar donde nos sentimos parte del equipo.",
           name: "Marek & Petra",
           role: "Huéspedes recurrentes"
         }
@@ -964,13 +1004,13 @@ const translations = {
     },
     callToAction: {
       title: "Diseñe su propio guion de estancia",
-      text: "Nos encargamos de todo: traslados privados, rituales de spa, playlists nocturnas. Escríbanos y coordinamos el resto.",
+      text: "Cuéntenos cómo quiere sentirse al despedirse. Organizaremos traslados, rituales de spa, sesiones de coaching y bandas sonoras nocturnas.",
       primary: "Planear mi estancia",
       secondary: "Ver disponibilidad"
     },
     contact: {
       title: "Contacto y llegada",
-      description: "Recibimos huéspedes 24/7. El equipo de concierge responde en menos de 12 horas.",
+      description: "Recibimos huéspedes las 24 horas. Nuestro equipo de concierge responde en menos de 12 horas.",
       addressLabel: "Dirección",
       address: "Puerto Lysport 7, 842 10, Costa Norte",
       phoneLabel: "Teléfono",
@@ -981,10 +1021,10 @@ const translations = {
       hours: [
         { day: "Lunes – Domingo", hours: "24 horas" }
       ],
-      note: "Estacionamiento cubierto con carga para vehículos eléctricos incluido."
+      note: "El estacionamiento cubierto incluye carga para vehículos eléctricos y espacio para tablas y equipo acuático."
     },
     footer: {
-      note: "© 2025 Pensión Didian – proyecto ficticio inspirado en Didian Genicek."
+      note: "© 2025 Pensión Didian – concepto ficticio inspirado en Didian Genicek."
     }
   },
   fr: {
@@ -999,161 +1039,166 @@ const translations = {
       { label: "Contact", target: "contact" }
     ],
     hero: {
-      badge: "Maison d’hôtes Didian",
+      badge: "Maison d'hôtes Didian",
       title: "Une cascade de sérénité au cœur de Lysport",
-      description: "La maison d’hôtes fictive Didian canalise l’énergie du capitaine légendaire de water-polo dans l’art de recevoir. Panoramas sur le fjord, rituels de spa signature et cuisine inspirée de l’océan composent un lieu où corps et esprit se ressourcent.",
+      description: "La maison d'hôtes Didian est un refuge fictif inspiré par la concentration du champion de water-polo Didian Genicek. Panoramas sur le fjord, rituels bien-être signature et cuisine guidée par l'océan composent un séjour où se régénèrent athlètes et rêveurs.",
       highlights: [
-        "Sky spa avec piscine panoramique d’eau salée",
-        "Suites éco-conçues à climat intelligent",
-        "Expériences orchestrées par l’équipage autour de l’eau"
+        "Sky spa avec vue sur le fjord",
+        "Suites durables à climat adaptatif",
+        "Expériences d'eau et de culture orchestrées par l'équipage"
       ],
       ctaPrimary: "Réserver mon séjour",
-      ctaSecondary: "Visite virtuelle"
+      ctaSecondary: "Visite virtuelle",
+      image: heroImage
     },
     about: {
-      title: "Une hospitalité au rythme de la compétition",
-      text: "Didian a imaginé ce refuge à partir de sa passion pour l’esprit d’équipe. Chaque suite raconte un voyage, chaque geste de service suit le tempo d’un match victorieux. Arrivez et laissez la côte nord vous apaiser.",
+      title: "Une hospitalité au rythme de l'équipe",
+      text: "Nous avons imaginé Didian comme un lieu où l'esprit d'équipe rencontre la douceur de la côte nord. Chaque suite évoque un match décisif et chaque détail de service suit le rythme des marées. Arrivez, respirez l'air salin et laissez le nord ralentir le temps.",
       stats: [
-        { label: "Année d’ouverture", value: "2026" },
+        { label: "Année d'ouverture", value: "2026" },
         { label: "Suites & chambres", value: "18" },
         { label: "Zones bien-être", value: "4" },
         { label: "Avis des hôtes", value: "4,9 / 5" }
       ],
-      note: "Le cœur du resort est la Captain's Lounge, l’endroit favori de Didian pour ses briefings tactiques."
+      note: "La Captain's Lounge reste la pièce préférée de Didian pour les briefings stratégiques et les vinyles du soir."
     },
     rooms: {
-      title: "Suites pensées pour la régénération",
-      subtitle: "Trois catégories signature mêlent design artisanal, confort et murmure du littoral nordique.",
+      title: "Des suites pensées pour la régénération",
+      subtitle: "Trois catégories signature mêlent design artisanal, confort généreux et murmure du littoral nordique.",
       items: [
         {
           name: "Suite Poséidon",
           size: "78 m²",
           sleeps: "2–4 hôtes",
-          description: "Loft en duplex avec vue sur le port, hammam privé et galerie de trophées.",
+          description: "Suite en duplex avec vue sur le port, hammam privé et galerie de trophées.",
           perks: [
-            "Concierge privé 24/7",
-            "Cave à vin de crus locaux",
-            "Espace musical et playlists sur mesure"
+            "Équipe de conciergerie disponible 24/7",
+            "Cave à vin garnie de millésimes côtiers",
+            "Scène sonore immersive aux playlists sélectionnées"
           ],
-          price: "à partir de 289 € / nuit"
+          price: "à partir de 289 € / nuit",
+          image: roomImages.poseidon,
+          imageAlt: "Suite Poséidon sur le port"
         },
         {
           name: "Loft Aurore",
           size: "52 m²",
           sleeps: "2 hôtes",
-          description: "Loft baigné de lumière pour couples en quête d’équilibre entre journées actives et soirées sereines.",
+          description: "Loft lumineux pour les couples qui équilibrent journées actives et soirées paisibles.",
           perks: [
-            "Éclairage circadien intelligent",
-            "Baignoire panoramique en pierre volcanique",
-            "Petit-déjeuner servi en suite"
+            "Scénarios lumineux circadiens",
+            "Baignoire panoramique sculptée dans la pierre volcanique",
+            "Panier petit-déjeuner livré en suite"
           ],
-          price: "à partir de 189 € / nuit"
+          price: "à partir de 189 € / nuit",
+          image: roomImages.aurora,
+          imageAlt: "Loft Aurore avec large fenêtre"
         },
         {
           name: "Garden Cabana",
           size: "46 m²",
           sleeps: "2–3 hôtes",
-          description: "Cabane indépendante au cœur du jardin d’herbes, terrasse privée et brasero pour les histoires du soir.",
+          description: "Cabane indépendante au cœur du jardin d'herbes, terrasse privée et brasero pour les histoires.",
           perks: [
             "Kit de rituel aux herbes personnalisé",
-            "Douche extérieure privée",
-            "Transats réservés près de la lagune"
+            "Douche pluie extérieure sous les pins",
+            "Transats réservés à la lagune"
           ],
-          price: "à partir de 209 € / nuit"
+          price: "à partir de 209 € / nuit",
+          image: roomImages.garden,
+          imageAlt: "Garden Cabana entourée d'herbes"
         }
       ]
     },
     wellness: {
-      title: "Bien-être en cadence",
-      description: "Ici l’eau coule au tempo de Didian. Alternez bassins contrastés, saunas cérémoniels et repos profond dans les grottes salines.",
+      title: "Bien-être au rythme de Didian",
+      description: "Ici l'eau suit le tempo de Didian. Alternez bassins contrastés, saunas cérémoniels et méditations dans la grotte de sel guidées par nos coaches.",
       features: [
-        {
-          title: "Sky Lagoon",
-          detail: "Piscine à débordement d’eau salée avec corner d’entraînement respiratoire."
-        },
-        {
-          title: "Nordic Heat Lab",
-          detail: "Saunas et rituels guidés par des coachs bien-être formés par Didian."
-        },
-        {
-          title: "Studio de récupération",
-          detail: "Massages physiothérapeutiques, drainage lymphatique et stretching personnalisé."
-        }
+        { title: "Sky Lagoon", detail: "Piscine à débordement d'eau salée avec plateformes flottantes pour le breathwork." },
+        { title: "Nordic Heat Lab", detail: "Rituels de sauna chorégraphiés par l'équipe bien-être de Didian." },
+        { title: "Recovery Studio", detail: "Physiothérapie de niveau athlète, drainage lymphatique et séances de stretching sur mesure." }
       ]
     },
     dining: {
-      title: "Cuisine aux saveurs de l’océan",
-      description: "La cheffe Lina compose des menus issus des fermes côtières et des prises du matin. Chaque plat fait écho aux voyages de Didian dans la Ocean League.",
+      title: "Cuisine aux saveurs de l'océan",
+      description: "La cheffe Lina travaille avec les producteurs du port et les pêcheurs du matin pour raconter des histoires de l'Ocean League.",
       features: [
-        {
-          title: "Restaurant Tidal",
-          detail: "Dégustations en cinq services avec accords mets-vins et musique live au coin du feu."
-        },
-        {
-          title: "Bar Brine",
-          detail: "Cocktails signature à la fleur de sel et sirops fermentés."
-        },
-        {
-          title: "Sunrise Pantry",
-          detail: "Comptoir toute la journée : smoothies bien-être, cold brew et pâtisserie artisanale."
-        }
+        { title: "Restaurant Tidal", detail: "Menus dégustation en cinq services avec accords mets-vins et musique live au coin du feu." },
+        { title: "Bar Brine", detail: "Cocktails signature à la fleur de sel, bitters d'algues et sirops fermentés." },
+        { title: "Sunrise Pantry", detail: "Comptoir toute la journée avec smoothies fonctionnels, cold brew et pâtisseries artisanales." }
       ]
     },
     experiences: {
       title: "Expériences signées équipage",
-      description: "Entraînez-vous avec l’équipe de Didian ou vibrez aux sons du port la nuit, notre crew compose un programme à votre mesure.",
+      description: "Nos hôtes personnaliseront votre programme, qu'il s'agisse d'entraînement en eau libre ou de soirées poétiques au port.",
       highlights: [
         {
           title: "Aventures aquatiques",
           items: [
-            "Session de nage à l’aube avec coach",
-            "Kayak nocturne sur lagunes bioluminescentes",
-            "Atelier tactique de water-polo pour débutants"
+            "Nage au lever du soleil encadrée par un ancien capitaine de ligue",
+            "Kayak dans des lagunes bioluminescentes sous les aurores",
+            "Atelier d'initiation à la tactique du water-polo"
           ]
         },
         {
           title: "Culture côtière",
           items: [
-            "Balades guidées dans le folklore de Lysport",
-            "Atelier de fleur de sel artisanale",
-            "Soirées musicales à la Captain's Lounge"
+            "Balades contées à travers le folklore de Lysport",
+            "Atelier d'artisans sur la fleur de sel",
+            "Soirées vinyles dans la Captain's Lounge"
           ]
         },
         {
-          title: "Esprit & corps",
+          title: "Mind & Body",
           items: [
-            "Respiration accompagnée d’un psychologue du sport",
-            "Bain sonore dans la grotte saline",
-            "Récitals privés de piano au coucher du soleil"
+            "Laboratoires de respiration avec le psychologue du sport",
+            "Bain sonore dans la grotte de sel",
+            "Couchers de soleil au piano face au fjord"
           ]
         }
       ]
     },
     gallery: {
-      title: "Instantanés de l’atmosphère",
-      description: "Quelques images suffisent pour comprendre pourquoi Didian marie énergie vibrante et calme profond.",
-      captions: [
-        "Petits-déjeuners brumeux sur la terrasse de la Sky Lagoon",
-        "Captain's Lounge prête pour les histoires du soir",
-        "Garden Cabana nichée au milieu des herbes",
-        "Nordic Heat Lab pendant un rituel Aufguss"
+      title: "Instantanés de l'atmosphère",
+      description: "Quelques images suffisent pour comprendre pourquoi Didian marie énergie vibrante et calme réparateur.",
+      images: [
+        {
+          image: galleryImages.terrace,
+          alt: "Terrasse Sky Lagoon au petit-déjeuner",
+          caption: "La brume du matin glisse sur la terrasse de la Sky Lagoon"
+        },
+        {
+          image: galleryImages.lounge,
+          alt: "Captain's Lounge prête pour le soir",
+          caption: "Captain's Lounge prête pour des histoires nocturnes"
+        },
+        {
+          image: galleryImages.garden,
+          alt: "Allée du jardin d'herbes",
+          caption: "Garden Cabana cachée au milieu des herbes aromatiques"
+        },
+        {
+          image: galleryImages.sauna,
+          alt: "Sauna pendant un rituel Aufguss",
+          caption: "Nordic Heat Lab durant une cérémonie Aufguss"
+        }
       ]
     },
     testimonials: {
       title: "Voix des hôtes",
       items: [
         {
-          quote: "Le rythme des cérémonies bien-être m’a mis sur une nouvelle fréquence. Didian est un reset pour le corps et l’esprit.",
+          quote: "Le rythme des cérémonies de sauna a réinitialisé mon esprit d'entraînement. Didian ressemble à un camp de récupération active.",
           name: "Tamara, triathlète",
-          role: "Cliente de Prague"
+          role: "Cliente venue de Prague"
         },
         {
-          quote: "Chaque détail semblait pensé. L’équipe a imaginé un plan d’entraînement à mon tempo.",
+          quote: "Chaque détail du Loft Aurore était intentionnel, des playlists à la lumière. J'ai composé trois morceaux en une nuit.",
           name: "Elias, musicien",
-          role: "Client de Berlin"
+          role: "Client venu de Berlin"
         },
         {
-          quote: "La cuisine et les histoires du lounge nous ramènent chaque saison. Nous nous sentons membres de l’équipage.",
+          quote: "Nous revenons pour la cuisine et les histoires de l'équipage. C'est le seul endroit où l'on se sent membres honoraires de l'équipe.",
           name: "Marek & Petra",
           role: "Hôtes fidèles"
         }
@@ -1161,13 +1206,13 @@ const translations = {
     },
     callToAction: {
       title: "Composez votre scénario de séjour",
-      text: "Nous orchestrons tout pour vous : transferts privés, rituels spa, playlists du soir. Contactez-nous et laissez-nous chorégraphier la suite.",
+      text: "Dites-nous comment vous souhaitez repartir. Nous orchestrerons transferts, rituels de spa, coachings et bandes-son du soir.",
       primary: "Planifier mon séjour",
       secondary: "Voir les disponibilités"
     },
     contact: {
-      title: "Contact & accès",
-      description: "Accueil 24h/24. Notre concierge répond sous 12 heures.",
+      title: "Contact & arrivée",
+      description: "Nous accueillons les invités 24h/24. Notre équipe de conciergerie répond dans les 12 heures.",
       addressLabel: "Adresse",
       address: "Port Lysport 7, 842 10, Côte Nord",
       phoneLabel: "Téléphone",
@@ -1178,34 +1223,33 @@ const translations = {
       hours: [
         { day: "Lundi – Dimanche", hours: "Ouvert 24h/24" }
       ],
-      note: "Parking couvert avec bornes de recharge pour véhicules électriques inclus."
+      note: "Le parking couvert inclut la recharge pour véhicules électriques et l'espace pour le matériel nautique."
     },
     footer: {
-      note: "© 2025 Maison d’hôtes Didian – concept fictif inspiré par Didian Genicek."
+      note: "© 2025 Maison d'hôtes Didian – concept fictif inspiré par Didian Genicek."
     }
   }
 };
-
 const languages = [
-  { code: "sk", label: "SK" },
-  { code: "cs", label: "CZ" },
-  { code: "de", label: "DE" },
-  { code: "en", label: "EN" },
-  { code: "es", label: "ES" },
-  { code: "fr", label: "FR" }
+  { code: 'sk', label: 'SK' },
+  { code: 'cs', label: 'CZ' },
+  { code: 'de', label: 'DE' },
+  { code: 'en', label: 'EN' },
+  { code: 'es', label: 'ES' },
+  { code: 'fr', label: 'FR' }
 ];
 
 function Navigation({ items, onNavigate }) {
   return h(
-    "nav",
-    { className: "nav-links" },
+    'nav',
+    { className: 'nav-links' },
     items.map((item) =>
       h(
-        "a",
+        'a',
         {
           key: item.target,
           href: `#${item.target}`,
-          className: "nav-link",
+          className: 'nav-link',
           onClick: (event) => {
             event.preventDefault();
             onNavigate(item.target);
@@ -1218,20 +1262,20 @@ function Navigation({ items, onNavigate }) {
 }
 
 function LanguageToolbar({ language, onSelect, label }) {
-  return h("div", { className: "language-toolbar" }, [
-    h("span", { key: "label", className: "language-label" }, `${label}:`),
+  return h('div', { className: 'language-toolbar' }, [
+    h('span', { key: 'label', className: 'language-label' }, `${label}:`),
     h(
-      "div",
-      { key: "options", className: "language-options" },
+      'div',
+      { key: 'options', className: 'language-options' },
       languages.map((option) =>
         h(
-          "button",
+          'button',
           {
             key: option.code,
-            type: "button",
-            className: `language-button${option.code === language ? " active" : ""}`,
+            type: 'button',
+            className: `language-button${option.code === language ? ' active' : ''}`,
             onClick: () => onSelect(option.code),
-            "aria-pressed": option.code === language
+            'aria-pressed': option.code === language
           },
           option.label
         )
@@ -1241,75 +1285,87 @@ function LanguageToolbar({ language, onSelect, label }) {
 }
 
 function StatCard({ label, value }) {
-  return h("div", { className: "stat-card" }, [
-    h("span", { key: "value", className: "stat-value" }, value),
-    h("span", { key: "label", className: "stat-label" }, label)
+  return h('div', { className: 'stat-card' }, [
+    h('span', { key: 'value', className: 'stat-value' }, value),
+    h('span', { key: 'label', className: 'stat-label' }, label)
   ]);
 }
 
 function RoomCard({ item }) {
-  return h("article", { className: "room-card" }, [
-    h("div", { key: "header", className: "room-header" }, [
-      h("h3", { key: "name", className: "room-name" }, item.name),
-      h("div", { key: "meta", className: "room-meta" }, [
-        h("span", { key: "size", className: "room-size" }, item.size),
-        h("span", { key: "sleeps", className: "room-sleeps" }, item.sleeps)
-      ])
+  return h('article', { className: 'room-card' }, [
+    h('figure', { key: 'figure', className: 'room-figure' }, [
+      h('img', {
+        key: 'image',
+        className: 'room-image',
+        src: item.image,
+        alt: item.imageAlt,
+        loading: 'lazy'
+      })
     ]),
-    h("p", { key: "description", className: "room-description" }, item.description),
-    h(
-      "ul",
-      { key: "perks", className: "room-perks" },
-      item.perks.map((perk) => h("li", { key: perk }, perk))
-    ),
-    h("div", { key: "price", className: "room-price" }, item.price)
+    h('div', { key: 'body', className: 'room-body' }, [
+      h('div', { key: 'header', className: 'room-header' }, [
+        h('h3', { key: 'name', className: 'room-name' }, item.name),
+        h('div', { key: 'meta', className: 'room-meta' }, [
+          h('span', { key: 'size', className: 'room-size' }, item.size),
+          h('span', { key: 'sleeps', className: 'room-sleeps' }, item.sleeps)
+        ])
+      ]),
+      h('p', { key: 'description', className: 'room-description' }, item.description),
+      h(
+        'ul',
+        { key: 'perks', className: 'room-perks' },
+        item.perks.map((perk) => h('li', { key: perk }, perk))
+      ),
+      h('div', { key: 'price', className: 'room-price' }, item.price)
+    ])
   ]);
 }
 
 function FeatureCard({ title, detail }) {
-  return h("article", { className: "feature-card" }, [
-    h("h3", { key: "title" }, title),
-    h("p", { key: "detail" }, detail)
+  return h('article', { className: 'feature-card' }, [
+    h('h3', { key: 'title' }, title),
+    h('p', { key: 'detail' }, detail)
   ]);
 }
 
 function ExperienceColumn({ title, items }) {
-  return h("article", { className: "experience-column" }, [
-    h("h3", { key: "title" }, title),
+  return h('article', { className: 'experience-column' }, [
+    h('h3', { key: 'title' }, title),
     h(
-      "ul",
-      { key: "list", className: "experience-list" },
-      items.map((item) => h("li", { key: item }, item))
+      'ul',
+      { key: 'list', className: 'experience-list' },
+      items.map((item) => h('li', { key: item }, item))
     )
   ]);
 }
 
-function GalleryCard({ caption, index }) {
-  return h("div", { className: "gallery-card", "data-index": index + 1 }, [
-    h("span", { key: "caption" }, caption)
+function GalleryCard({ image, alt, caption }) {
+  return h('figure', { className: 'gallery-card' }, [
+    h('img', { key: 'image', className: 'gallery-image', src: image, alt, loading: 'lazy' }),
+    h('figcaption', { key: 'caption', className: 'gallery-caption' }, caption)
   ]);
 }
 
 function TestimonialCard({ quote, name, role }) {
-  return h("article", { className: "testimonial-card" }, [
-    h("p", { key: "quote", className: "testimonial-quote" }, `“${quote}”`),
-    h("div", { key: "person", className: "testimonial-person" }, [
-      h("span", { key: "name", className: "testimonial-name" }, name),
-      h("span", { key: "role", className: "testimonial-role" }, role)
+  return h('article', { className: 'testimonial-card' }, [
+    h('p', { key: 'quote', className: 'testimonial-quote' }, `"${quote}"`),
+    h('div', { key: 'person', className: 'testimonial-person' }, [
+      h('span', { key: 'name', className: 'testimonial-name' }, name),
+      h('span', { key: 'role', className: 'testimonial-role' }, role)
     ])
   ]);
 }
 
 function ContactHours({ title, hours }) {
-  return h("div", { className: "contact-hours" }, [
-    h("h3", { key: "title" }, title),
+  return h('div', { className: 'contact-hours' }, [
+    h('h3', { key: 'title' }, title),
     h(
-      "ul",
-      { key: "list", className: "hours-list" },
+      'ul',
+      { key: 'list', className: 'hours-list' },
       hours.map((item) =>
-        h("li", { key: item.day }, [
-          h("span", { key: "day", className: "hours-day" }, item.day),
-          h("span", { key: "time", className: "hours-time" }, item.hours)
+        h('li', { key: item.day }, [
+          h('span', { key: 'day', className: 'hours-day' }, item.day),
+          h('span', { key: 'time', className: 'hours-time' }, item.hours)
         ])
       )
     )
@@ -1317,216 +1373,223 @@ function ContactHours({ title, hours }) {
 }
 
 export default function App() {
-  const [language, setLanguage] = useState("sk");
+  const [language, setLanguage] = useState('sk');
   const t = translations[language];
 
   const scrollToSection = (target) => {
     const element = document.getElementById(target);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
-  return h("div", { className: "site-wrapper" }, [
-    h("header", { key: "topbar", className: "topbar" }, [
-      h("div", { key: "brand", className: "brand" }, [
-        h("div", { key: "mark", className: "brand-mark" }, "D"),
-        h("div", { key: "text", className: "brand-text" }, [
-          h("span", { key: "name", className: "brand-name" }, "Didian"),
-          h("span", { key: "badge", className: "brand-sub" }, t.hero.badge)
+  return h('div', { className: 'site-wrapper' }, [
+    h('header', { key: 'topbar', className: 'topbar' }, [
+      h('div', { key: 'brand', className: 'brand' }, [
+        h('div', { key: 'mark', className: 'brand-mark' }, 'D'),
+        h('div', { key: 'text', className: 'brand-text' }, [
+          h('span', { key: 'name', className: 'brand-name' }, 'Didian'),
+          h('span', { key: 'badge', className: 'brand-sub' }, t.hero.badge)
         ])
       ]),
-      h(Navigation, { key: "nav", items: t.nav, onNavigate: scrollToSection }),
+      h(Navigation, { key: 'nav', items: t.nav, onNavigate: scrollToSection }),
       h(LanguageToolbar, {
-        key: "lang",
+        key: 'lang',
         language,
         onSelect: setLanguage,
         label: t.languageLabel
       })
     ]),
-    h("main", { key: "main", className: "main-content" }, [
-      h("section", { key: "hero", id: "hero", className: "hero-section" }, [
-        h("div", { key: "inner", className: "hero-inner" }, [
-          h("div", { key: "badge", className: "hero-badge" }, t.hero.badge),
-          h("h1", { key: "title", className: "hero-title" }, t.hero.title),
-          h("p", { key: "description", className: "hero-description" }, t.hero.description),
-          h(
-            "div",
-            { key: "highlights", className: "hero-highlights" },
-            t.hero.highlights.map((item, index) =>
-              h("span", { key: `${item}-${index}`, className: "hero-pill" }, item)
-            )
-          ),
-          h("div", { key: "ctas", className: "hero-ctas" }, [
+    h('main', { key: 'main', className: 'main-content' }, [
+      h(
+        'section',
+        {
+          key: 'hero',
+          id: 'hero',
+          className: 'hero-section',
+          style: { backgroundImage: `url(${t.hero.image})` }
+        },
+        [
+          h('div', { key: 'inner', className: 'hero-inner' }, [
+            h('div', { key: 'badge', className: 'hero-badge' }, t.hero.badge),
+            h('h1', { key: 'title', className: 'hero-title' }, t.hero.title),
+            h('p', { key: 'description', className: 'hero-description' }, t.hero.description),
             h(
-              "button",
-              {
-                key: "primary",
-                type: "button",
-                className: "hero-primary",
-                onClick: () => scrollToSection("rooms")
-              },
-              t.hero.ctaPrimary
+              'div',
+              { key: 'highlights', className: 'hero-highlights' },
+              t.hero.highlights.map((item, index) =>
+                h('span', { key: `${item}-${index}`, className: 'hero-pill' }, item)
+              )
             ),
-            h(
-              "button",
-              {
-                key: "secondary",
-                type: "button",
-                className: "hero-secondary",
-                onClick: () => scrollToSection("gallery")
-              },
-              t.hero.ctaSecondary
-            )
+            h('div', { key: 'ctas', className: 'hero-ctas' }, [
+              h(
+                'button',
+                {
+                  key: 'primary',
+                  type: 'button',
+                  className: 'hero-primary',
+                  onClick: () => scrollToSection('rooms')
+                },
+                t.hero.ctaPrimary
+              ),
+              h(
+                'button',
+                {
+                  key: 'secondary',
+                  type: 'button',
+                  className: 'hero-secondary',
+                  onClick: () => scrollToSection('gallery')
+                },
+                t.hero.ctaSecondary
+              )
+            ])
           ])
-        ])
-      ]),
-      h("section", { key: "about", id: "about", className: "section about-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.about.title),
-          h("p", { key: "text", className: "section-text" }, t.about.text)
+        ]
+      ),
+      h('section', { key: 'about', id: 'about', className: 'section about-section' }, [
+        h('div', { key: 'intro', className: 'section-intro' }, [
+          h('h2', { key: 'title', className: 'section-title' }, t.about.title),
+          h('p', { key: 'text', className: 'section-text' }, t.about.text)
         ]),
         h(
-          "div",
-          { key: "stats", className: "stats-grid" },
+          'div',
+          { key: 'stats', className: 'stats-grid' },
           t.about.stats.map((stat) => h(StatCard, { key: stat.label, ...stat }))
         ),
-        h("p", { key: "note", className: "section-note" }, t.about.note)
+        h('p', { key: 'note', className: 'section-note' }, t.about.note)
       ]),
-      h("section", { key: "rooms", id: "rooms", className: "section rooms-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.rooms.title),
-          h("p", { key: "subtitle", className: "section-text" }, t.rooms.subtitle)
+      h('section', { key: 'rooms', id: 'rooms', className: 'section rooms-section' }, [
+        h('div', { key: 'intro', className: 'section-intro' }, [
+          h('h2', { key: 'title', className: 'section-title' }, t.rooms.title),
+          h('p', { key: 'subtitle', className: 'section-text' }, t.rooms.subtitle)
         ]),
         h(
-          "div",
-          { key: "grid", className: "rooms-grid" },
+          'div',
+          { key: 'grid', className: 'rooms-grid' },
           t.rooms.items.map((item) => h(RoomCard, { key: item.name, item }))
         )
       ]),
-      h("section", { key: "wellness", id: "wellness", className: "section alt-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.wellness.title),
-          h("p", { key: "text", className: "section-text" }, t.wellness.description)
+      h('section', { key: 'wellness', id: 'wellness', className: 'section alt-section' }, [
+        h('div', { key: 'intro', className: 'section-intro' }, [
+          h('h2', { key: 'title', className: 'section-title' }, t.wellness.title),
+          h('p', { key: 'text', className: 'section-text' }, t.wellness.description)
         ]),
         h(
-          "div",
-          { key: "features", className: "feature-grid" },
+          'div',
+          { key: 'features', className: 'feature-grid' },
           t.wellness.features.map((feature) =>
             h(FeatureCard, { key: feature.title, ...feature })
           )
         )
       ]),
-      h("section", { key: "dining", className: "section dining-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.dining.title),
-          h("p", { key: "text", className: "section-text" }, t.dining.description)
+      h('section', { key: 'dining', id: 'dining', className: 'section dining-section' }, [
+        h('div', { key: 'intro', className: 'section-intro' }, [
+          h('h2', { key: 'title', className: 'section-title' }, t.dining.title),
+          h('p', { key: 'text', className: 'section-text' }, t.dining.description)
         ]),
         h(
-          "div",
-          { key: "features", className: "feature-grid" },
+          'div',
+          { key: 'features', className: 'feature-grid' },
           t.dining.features.map((feature) =>
             h(FeatureCard, { key: feature.title, ...feature })
           )
         )
       ]),
-      h("section", { key: "experiences", id: "experiences", className: "section experiences-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.experiences.title),
-          h("p", { key: "text", className: "section-text" }, t.experiences.description)
+      h('section', { key: 'experiences', id: 'experiences', className: 'section experiences-section' }, [
+        h('div', { key: 'intro', className: 'section-intro' }, [
+          h('h2', { key: 'title', className: 'section-title' }, t.experiences.title),
+          h('p', { key: 'text', className: 'section-text' }, t.experiences.description)
         ]),
         h(
-          "div",
-          { key: "columns", className: "experiences-columns" },
+          'div',
+          { key: 'columns', className: 'experiences-columns' },
           t.experiences.highlights.map((column) =>
             h(ExperienceColumn, { key: column.title, ...column })
           )
         )
       ]),
-      h("section", { key: "gallery", id: "gallery", className: "section gallery-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.gallery.title),
-          h("p", { key: "text", className: "section-text" }, t.gallery.description)
+      h('section', { key: 'gallery', id: 'gallery', className: 'section gallery-section' }, [
+        h('div', { key: 'intro', className: 'section-intro' }, [
+          h('h2', { key: 'title', className: 'section-title' }, t.gallery.title),
+          h('p', { key: 'text', className: 'section-text' }, t.gallery.description)
         ]),
         h(
-          "div",
-          { key: "grid", className: "gallery-grid" },
-          t.gallery.captions.map((caption, index) =>
-            h(GalleryCard, { key: caption, caption, index })
-          )
+          'div',
+          { key: 'grid', className: 'gallery-grid' },
+          t.gallery.images.map((item) => h(GalleryCard, { key: item.caption, ...item }))
         )
       ]),
-      h("section", { key: "testimonials", id: "testimonials", className: "section testimonials-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.testimonials.title)
+      h('section', { key: 'testimonials', id: 'testimonials', className: 'section testimonials-section' }, [
+        h('div', { key: 'intro', className: 'section-intro' }, [
+          h('h2', { key: 'title', className: 'section-title' }, t.testimonials.title)
         ]),
         h(
-          "div",
-          { key: "grid", className: "testimonials-grid" },
+          'div',
+          { key: 'grid', className: 'testimonials-grid' },
           t.testimonials.items.map((item, index) =>
             h(TestimonialCard, { key: `${item.name}-${index}`, ...item })
           )
         )
       ]),
-      h("section", { key: "cta", className: "section cta-section" }, [
-        h("div", { key: "panel", className: "cta-panel" }, [
-          h("h2", { key: "title", className: "section-title" }, t.callToAction.title),
-          h("p", { key: "text", className: "section-text" }, t.callToAction.text),
-          h("div", { key: "buttons", className: "cta-buttons" }, [
+      h('section', { key: 'cta', className: 'section cta-section' }, [
+        h('div', { key: 'panel', className: 'cta-panel' }, [
+          h('h2', { key: 'title', className: 'section-title' }, t.callToAction.title),
+          h('p', { key: 'text', className: 'section-text' }, t.callToAction.text),
+          h('div', { key: 'buttons', className: 'cta-buttons' }, [
             h(
-              "button",
+              'button',
               {
-                key: "primary",
-                type: "button",
-                className: "hero-primary",
-                onClick: () => scrollToSection("contact")
+                key: 'primary',
+                type: 'button',
+                className: 'hero-primary',
+                onClick: () => scrollToSection('contact')
               },
               t.callToAction.primary
             ),
             h(
-              "button",
+              'button',
               {
-                key: "secondary",
-                type: "button",
-                className: "hero-secondary",
-                onClick: () => scrollToSection("rooms")
+                key: 'secondary',
+                type: 'button',
+                className: 'hero-secondary',
+                onClick: () => scrollToSection('rooms')
               },
               t.callToAction.secondary
             )
           ])
         ])
       ]),
-      h("section", { key: "contact", id: "contact", className: "section contact-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.contact.title),
-          h("p", { key: "text", className: "section-text" }, t.contact.description)
+      h('section', { key: 'contact', id: 'contact', className: 'section contact-section' }, [
+        h('div', { key: 'intro', className: 'section-intro' }, [
+          h('h2', { key: 'title', className: 'section-title' }, t.contact.title),
+          h('p', { key: 'text', className: 'section-text' }, t.contact.description)
         ]),
-        h("div", { key: "grid", className: "contact-grid" }, [
-          h("div", { key: "address", className: "contact-card" }, [
-            h("h3", { key: "label" }, t.contact.addressLabel),
-            h("p", { key: "value" }, t.contact.address)
+        h('div', { key: 'grid', className: 'contact-grid' }, [
+          h('div', { key: 'address', className: 'contact-card' }, [
+            h('h3', { key: 'label' }, t.contact.addressLabel),
+            h('p', { key: 'value' }, t.contact.address)
           ]),
-          h("div", { key: "phone", className: "contact-card" }, [
-            h("h3", { key: "label" }, t.contact.phoneLabel),
+          h('div', { key: 'phone', className: 'contact-card' }, [
+            h('h3', { key: 'label' }, t.contact.phoneLabel),
             h(
-              "a",
-              { key: "value", href: `tel:${t.contact.phone}` },
+              'a',
+              { key: 'value', href: `tel:${t.contact.phone}` },
               t.contact.phone
             )
           ]),
-          h("div", { key: "email", className: "contact-card" }, [
-            h("h3", { key: "label" }, t.contact.emailLabel),
+          h('div', { key: 'email', className: 'contact-card' }, [
+            h('h3', { key: 'label' }, t.contact.emailLabel),
             h(
-              "a",
-              { key: "value", href: `mailto:${t.contact.email}` },
+              'a',
+              { key: 'value', href: `mailto:${t.contact.email}` },
               t.contact.email
             )
           ]),
-          h(ContactHours, { key: "hours", title: t.contact.hoursTitle, hours: t.contact.hours })
+          h(ContactHours, { key: 'hours', title: t.contact.hoursTitle, hours: t.contact.hours })
         ]),
-        h("p", { key: "note", className: "section-note" }, t.contact.note)
+        h('p', { key: 'note', className: 'section-note' }, t.contact.note)
       ])
     ]),
-    h("footer", { key: "footer", className: "site-footer" }, t.footer.note)
+    h('footer', { key: 'footer', className: 'site-footer' }, t.footer.note)
   ]);
 }
