@@ -1,43 +1,43 @@
-const h = window.React.createElement;
+ï»¿const h = window.React.createElement;
 
 const athleteProfile = {
   name: 'Didian Genicek',
-  tagline: 'Profesionálny hráè vodného póla & taktickı vizionár',
-  biography: `Didian Genicek je smerodajnou postavou moderného vodného póla. Narodil sa v mestskom prístave Lysport a u ako diea
-  trénoval v prístavnıch bazénoch. Svoj debut v profesionálnej lige absolvoval v osemnástich rokoch a odvtedy vedie tím Lysport Leviathans
-  k sérii trofejí. Je známy najmä schopnosou èíta hru a bleskovımi kontranábehmi, ktoré rozkladajú obrany súpera.`,
+  tagline: 'ProfesionÃ¡lny hrÃ¡Ä vodnÃ©ho pÃ³la & taktickÃ½ vizionÃ¡r',
+  biography: `Didian Genicek je smerodajnou postavou modernÃ©ho vodnÃ©ho pÃ³la. Narodil sa v mestskom prÃ­stave Lysport a uÅ¾ ako dieÅ¥a
+  trÃ©noval v prÃ­stavnÃ½ch bazÃ©noch. Svoj debut v profesionÃ¡lnej lige absolvoval v osemnÃ¡stich rokoch a odvtedy vedie tÃ­m Lysport Leviathans
+  k sÃ©rii trofejÃ­. Je znÃ¡my najmÃ¤ schopnosÅ¥ou ÄÃ­taÅ¥ hru a bleskovÃ½mi kontranÃ¡behmi, ktorÃ© rozkladajÃº obrany sÃºpera.`,
 };
 
 const highlightStats = [
-  { label: 'Góly v sezóne 2024', value: 87 },
+  { label: 'GÃ³ly v sezÃ³ne 2024', value: 87 },
   { label: 'Asistencie', value: 56 },
-  { label: 'Vyhraté sprinty', value: 41 },
-  { label: 'Priemernı èas v bazéne', value: '29:17 min' },
+  { label: 'VyhratÃ© sprinty', value: 41 },
+  { label: 'PriemernÃ½ Äas v bazÃ©ne', value: '29:17 min' },
 ];
 
 const accolades = [
-  { year: 2024, title: 'MVP Európskej ligy', detail: 'Ako kapitán priviedol Lysport Leviathans k majstrovskému titulu.' },
-  { year: 2023, title: 'Zlatá èiapka', detail: 'Najlepší strelec finále Svetového pohára.' },
-  { year: 2021, title: 'Defenzívna kotva roka', detail: 'Najmenej inkasovanıch gólov pri jeho prítomnosti v bazéne.' },
+  { year: 2024, title: 'MVP EurÃ³pskej ligy', detail: 'Ako kapitÃ¡n priviedol Lysport Leviathans k majstrovskÃ©mu titulu.' },
+  { year: 2023, title: 'ZlatÃ¡ Äiapka', detail: 'NajlepÅ¡Ã­ strelec finÃ¡le SvetovÃ©ho pohÃ¡ra.' },
+  { year: 2021, title: 'DefenzÃ­vna kotva roka', detail: 'Najmenej inkasovanÃ½ch gÃ³lov pri jeho prÃ­tomnosti v bazÃ©ne.' },
 ];
 
 const timeline = [
-  { year: '2014', event: 'Prvé juniorské majstrovstvá – debut za Lysport Tidebreakers.' },
-  { year: '2017', event: 'Podpis profesionálnej zmluvy a rıchly posun do základnej zostavy.' },
-  { year: '2019', event: 'Rozhodujúci gól v semifinále Svetového pohára – prvé ve¾ké zlato.' },
-  { year: '2022', event: 'Zaloenie akadémie pre deti z pobrenıch komunít.' },
-  { year: '2024', event: 'Rekordnıch 87 gólov v sezóne a neporazená domáca liga.' },
+  { year: '2014', event: 'PrvÃ© juniorskÃ© majstrovstvÃ¡ â€“ debut za Lysport Tidebreakers.' },
+  { year: '2017', event: 'Podpis profesionÃ¡lnej zmluvy a rÃ½chly posun do zÃ¡kladnej zostavy.' },
+  { year: '2019', event: 'RozhodujÃºci gÃ³l v semifinÃ¡le SvetovÃ©ho pohÃ¡ra â€“ prvÃ© veÄ¾kÃ© zlato.' },
+  { year: '2022', event: 'ZaloÅ¾enie akadÃ©mie pre deti z pobreÅ¾nÃ½ch komunÃ­t.' },
+  { year: '2024', event: 'RekordnÃ½ch 87 gÃ³lov v sezÃ³ne a neporazenÃ¡ domÃ¡ca liga.' },
 ];
 
 const upcomingMatches = [
-  { opponent: 'Riviera Barracudas', date: '12. júl 2025', venue: 'Akvadóm Lysport', detail: 'K¾úèovı duel o prieèku v Lige oceánov.' },
-  { opponent: 'Nordhaven Maelstrom', date: '26. júl 2025', venue: 'Severné športové centrum', detail: 'Oèakávaná odveta po napínavom finále minulı rok.' },
-  { opponent: 'Sicilia Sirens', date: '9. august 2025', venue: 'Sirens Arena', detail: 'Charitatívny zápas podporujúci èistotu oceánov.' },
+  { opponent: 'Riviera Barracudas', date: '12. jÃºl 2025', venue: 'AkvadÃ³m Lysport', detail: 'KÄ¾ÃºÄovÃ½ duel o prieÄku v Lige oceÃ¡nov.' },
+  { opponent: 'Nordhaven Maelstrom', date: '26. jÃºl 2025', venue: 'SevernÃ© Å¡portovÃ© centrum', detail: 'OÄakÃ¡vanÃ¡ odveta po napÃ­navom finÃ¡le minulÃ½ rok.' },
+  { opponent: 'Sicilia Sirens', date: '9. august 2025', venue: 'Sirens Arena', detail: 'CharitatÃ­vny zÃ¡pas podporujÃºci Äistotu oceÃ¡nov.' },
 ];
 
 const quotes = [
-  { source: 'Trénerka Mira Volanská', text: 'Didian èíta vodu tak, ako iní èítajú hudbu. Jeho útoky majú rytmus, ktorı zlomí kadú obranu.' },
-  { source: 'Spoluhráè Dario Kellen', text: 'Staèí, e zdvihne ruku a celı tím vie, èo bude nasledova. Je motor aj kompas nášho klubu.' },
+  { source: 'TrÃ©nerka Mira VolanskÃ¡', text: 'Didian ÄÃ­ta vodu tak, ako inÃ­ ÄÃ­tajÃº hudbu. Jeho Ãºtoky majÃº rytmus, ktorÃ½ zlomÃ­ kaÅ¾dÃº obranu.' },
+  { source: 'SpoluhrÃ¡Ä Dario Kellen', text: 'StaÄÃ­, Å¾e zdvihne ruku a celÃ½ tÃ­m vie, Äo bude nasledovaÅ¥. Je motor aj kompas nÃ¡Å¡ho klubu.' },
 ];
 
 function SectionHeading({ title, subtitle }) {
@@ -80,19 +80,19 @@ function QuoteCard({ source, text }) {
 export default function App() {
   return h('main', { className: 'page-shell' }, [
     h('header', { key: 'hero', className: 'hero' }, [
-      h('div', { key: 'badge', className: 'hero-badge' }, 'Vodné pólo'),
+      h('div', { key: 'badge', className: 'hero-badge' }, 'VodnÃ© pÃ³lo'),
       h('h1', { key: 'name' }, athleteProfile.name),
       h('p', { key: 'tagline', className: 'hero-tagline' }, athleteProfile.tagline),
-      h('a', { key: 'cta', href: '#matches', className: 'hero-cta' }, 'Pozri nadchádzajúce zápasy'),
+      h('a', { key: 'cta', href: '#matches', className: 'hero-cta' }, 'Pozri nadchÃ¡dzajÃºce zÃ¡pasy'),
     ]),
 
     h('section', { key: 'bio', className: 'section card' }, [
-      h(SectionHeading, { key: 'heading', title: 'Príbeh medzi ralokmi' }),
+      h(SectionHeading, { key: 'heading', title: 'PrÃ­beh medzi Å¾ralokmi' }),
       h('p', { key: 'bio', className: 'body-text' }, athleteProfile.biography),
     ]),
 
     h('section', { key: 'stats', className: 'section' }, [
-      h(SectionHeading, { key: 'heading', title: 'Èísla, ktoré definujú sezónu' }),
+      h(SectionHeading, { key: 'heading', title: 'ÄŒÃ­sla, ktorÃ© definujÃº sezÃ³nu' }),
       h('div', { key: 'grid', className: 'stat-grid' }, highlightStats.map((stat) => h(StatCard, { key: stat.label, ...stat }))),
     ]),
 
@@ -108,23 +108,23 @@ export default function App() {
     ]),
 
     h('section', { key: 'timeline', className: 'section card timeline-card' }, [
-      h(SectionHeading, { key: 'heading', title: 'Èasová os kariéry' }),
+      h(SectionHeading, { key: 'heading', title: 'ÄŒasovÃ¡ os kariÃ©ry' }),
       h('ul', { key: 'timeline', className: 'timeline' }, timeline.map((item) => h(TimelineItem, { key: item.year, ...item }))),
     ]),
 
     h('section', { key: 'quotes', className: 'section' }, [
-      h(SectionHeading, { key: 'heading', title: 'Hlasy z bazéna' }),
+      h(SectionHeading, { key: 'heading', title: 'Hlasy z bazÃ©na' }),
       h('div', { key: 'quote-grid', className: 'quote-grid' }, quotes.map((item, index) => h(QuoteCard, { key: index, ...item }))),
     ]),
 
     h('section', { key: 'matches', id: 'matches', className: 'section card' }, [
-      h(SectionHeading, { key: 'heading', title: 'Nadchádzajúce zápasy', subtitle: 'Pripravte sa na ïalší príliv adrenalínu' }),
+      h(SectionHeading, { key: 'heading', title: 'NadchÃ¡dzajÃºce zÃ¡pasy', subtitle: 'Pripravte sa na ÄalÅ¡Ã­ prÃ­liv adrenalÃ­nu' }),
       h('div', { key: 'matches-grid', className: 'match-grid' }, upcomingMatches.map((match) => h(MatchCard, { key: match.opponent, ...match }))),
     ]),
 
     h('footer', { key: 'footer', className: 'footer' }, [
-      h('p', { key: 'note' }, 'Fiktívny profil vytvorenı pre tréningové úèely.'),
-      h('p', { key: 'cta' }, 'Sledujte Didiana na sociálnych sieach – #GenicekWave'),
+      h('p', { key: 'note' }, 'FiktÃ­vny profil vytvorenÃ½ pre trÃ©ningovÃ© ÃºÄely.'),
+      h('p', { key: 'cta' }, 'Sledujte Didiana na sociÃ¡lnych sieÅ¥ach â€“ #GenicekWave'),
     ]),
   ]);
 }
