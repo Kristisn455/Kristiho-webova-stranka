@@ -24,6 +24,59 @@ body {
   background: rgba(255, 255, 255, 0.12);
 }
 
+.language-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  box-shadow: 0 12px 28px rgba(13, 27, 42, 0.18);
+  backdrop-filter: blur(12px);
+  align-self: flex-end;
+  margin-left: auto;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.language-label {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: rgba(7, 18, 31, 0.75);
+}
+
+.language-options {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.language-button {
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #0d1b2a;
+  background: rgba(255, 255, 255, 0.55);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.language-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(13, 27, 42, 0.18);
+}
+
+.language-button.active {
+  background: #0e4d92;
+  color: #f5fbff;
+  box-shadow: 0 12px 26px rgba(14, 77, 146, 0.35);
+}
+
 .hero {
   display: grid;
   gap: 1rem;
@@ -262,6 +315,11 @@ body {
 @media (max-width: 640px) {
   .page-shell {
     padding: 2.4rem 1.4rem;
+  }
+
+  .language-toolbar {
+    align-self: center;
+    margin-left: 0;
   }
 
   .hero {
