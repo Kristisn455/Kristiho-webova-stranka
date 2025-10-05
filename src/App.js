@@ -1,4 +1,4 @@
-const h = React.createElement;
+const h = window.React.createElement;
 
 const athleteProfile = {
   name: 'Didian Genicek',
