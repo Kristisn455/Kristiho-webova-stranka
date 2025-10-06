@@ -384,7 +384,7 @@ const languages = [
 
 function LanguageToolbar({ language, onSelect, label }) {
   return h("div", { className: "language-toolbar" }, [
-    h("span", { key: "label", className: "language-label" }, ${label}:),
+    h("span", { key: "label", className: "language-label" }, `${label}:`),
     h(
       "div",
       { key: "options", className: "language-options" },
@@ -511,7 +511,7 @@ function HeroCard({ hero }) {
       h(
         "div",
         { key: "highlights", className: "hero-highlights" },
-        hero.highlights.map((item, index) => h("span", { key: ${item}-, className: "hero-pill" }, item))
+        hero.highlights.map((item, index) => h("span", { key: `${item}-${index}`,  className: "hero-pill" }, item))
       )
     ])
   ]);
