@@ -1,8 +1,8 @@
 ﻿:root {
   color-scheme: light;
   font-family: "Montserrat", "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top left, #a4f1ff, #0d1b2a 58%);
-  color: #0d1b2a;
+  background: radial-gradient(circle at top left, #f4f0e6, #1f2a24 58%);
+  color: #1f2a24;
 }
 
 * {
@@ -44,7 +44,7 @@ button {
   background: rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(18px);
   border-radius: 18px;
-  box-shadow: 0 18px 32px rgba(13, 27, 42, 0.18);
+  box-shadow: 0 18px 32px rgba(31, 42, 36, 0.18);
 }
 
 .brand {
@@ -57,13 +57,13 @@ button {
   width: 44px;
   height: 44px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #0e4d92, #5bd5ff);
-  color: #f5fbff;
+  background: linear-gradient(135deg, #3b6d4f, #a6d2a4);
+  color: #fdfaf4;
   display: grid;
   place-items: center;
   font-weight: 700;
   letter-spacing: 0.08em;
-  box-shadow: 0 10px 18px rgba(14, 77, 146, 0.35);
+  box-shadow: 0 10px 18px rgba(59, 109, 79, 0.35);
 }
 
 .brand-text {
@@ -81,7 +81,7 @@ button {
 
 .brand-sub {
   font-size: 0.8rem;
-  color: rgba(7, 18, 31, 0.65);
+  color: rgba(31, 42, 36, 0.65);
 }
 
 .nav-links {
@@ -95,13 +95,13 @@ button {
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: rgba(7, 18, 31, 0.75);
+  color: rgba(31, 42, 36, 0.75);
   transition: background 0.2s ease, color 0.2s ease;
 }
 
 .nav-link:hover {
-  background: rgba(14, 77, 146, 0.12);
-  color: #0e4d92;
+  background: rgba(59, 109, 79, 0.12);
+  color: #3b6d4f;
 }
 
 .language-toolbar {
@@ -111,7 +111,7 @@ button {
   background: rgba(255, 255, 255, 0.36);
   padding: 0.45rem 0.75rem;
   border-radius: 999px;
-  box-shadow: inset 0 0 0 1px rgba(13, 27, 42, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(31, 42, 36, 0.08);
 }
 
 .language-label {
@@ -119,7 +119,7 @@ button {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(7, 18, 31, 0.6);
+  color: rgba(31, 42, 36, 0.6);
 }
 
 .language-options {
@@ -135,19 +135,19 @@ button {
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: rgba(7, 18, 31, 0.75);
+  color: rgba(31, 42, 36, 0.75);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .language-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(13, 27, 42, 0.18);
+  box-shadow: 0 8px 18px rgba(31, 42, 36, 0.18);
 }
 
 .language-button.active {
-  background: #0e4d92;
-  color: #f5fbff;
-  box-shadow: 0 10px 22px rgba(14, 77, 146, 0.35);
+  background: #3b6d4f;
+  color: #fdfaf4;
+  box-shadow: 0 10px 22px rgba(59, 109, 79, 0.35);
 }
 
 .main-content {
@@ -178,13 +178,13 @@ button {
   margin: 0;
   font-size: 1.05rem;
   line-height: 1.7;
-  color: rgba(13, 27, 42, 0.78);
+  color: rgba(31, 42, 36, 0.78);
 }
 
 .section-note {
   margin: 0;
   font-size: 0.95rem;
-  color: rgba(13, 27, 42, 0.62);
+  color: rgba(31, 42, 36, 0.62);
 }
 
 .hero-section {
@@ -194,14 +194,14 @@ button {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  box-shadow: 0 24px 44px rgba(4, 10, 32, 0.35);
+  box-shadow: 0 24px 44px rgba(20, 28, 22, 0.35);
 }
 
 .hero-section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(9, 47, 104, 0.85), rgba(25, 118, 210, 0.78));
+  background: linear-gradient(135deg, rgba(64, 95, 64, 0.88), rgba(166, 132, 86, 0.78));
 }
 
 .hero-inner {
@@ -211,7 +211,7 @@ button {
   display: grid;
   gap: 1.4rem;
   max-width: 640px;
-  color: #f5fbff;
+  color: #fdfaf4;
 }
 
 .hero-badge {
@@ -235,7 +235,7 @@ button {
   margin: 0;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: rgba(245, 251, 255, 0.85);
+  color: rgba(253, 250, 244, 0.88);
 }
 
 .hero-highlights {
@@ -275,8 +275,8 @@ button {
 
 .hero-secondary {
   background: rgba(255, 255, 255, 0.2);
-  color: #f5fbff;
-  box-shadow: 0 10px 22px rgba(4, 10, 32, 0.22);
+  color: #fdfaf4;
+  box-shadow: 0 10px 22px rgba(20, 28, 22, 0.22);
 }
 
 .hero-primary:hover,
@@ -295,21 +295,21 @@ button {
   border-radius: 18px;
   padding: 1.5rem 1.2rem;
   text-align: center;
-  box-shadow: inset 0 0 0 1px rgba(13, 27, 42, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(31, 42, 36, 0.08);
 }
 
 .stat-value {
   display: block;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #0e4d92;
+  color: #3b6d4f;
 }
 
 .stat-label {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: rgba(13, 27, 42, 0.55);
+  color: rgba(31, 42, 36, 0.55);
 }
 
 .rooms-grid {
@@ -324,7 +324,7 @@ button {
   padding: 1.8rem 1.6rem;
   display: grid;
   gap: 1.2rem;
-  box-shadow: 0 18px 32px rgba(13, 27, 42, 0.16);
+  box-shadow: 0 18px 32px rgba(31, 42, 36, 0.16);
 }
 
 .room-figure {
@@ -362,13 +362,13 @@ button {
   flex-direction: column;
   align-items: flex-end;
   font-size: 0.85rem;
-  color: rgba(13, 27, 42, 0.6);
+  color: rgba(31, 42, 36, 0.6);
 }
 
 .room-description {
   margin: 0;
   line-height: 1.6;
-  color: rgba(13, 27, 42, 0.78);
+  color: rgba(31, 42, 36, 0.78);
 }
 
 .room-perks {
@@ -376,19 +376,19 @@ button {
   padding-left: 1.1rem;
   display: grid;
   gap: 0.4rem;
-  color: rgba(13, 27, 42, 0.7);
+  color: rgba(31, 42, 36, 0.7);
 }
 
 .room-price {
   font-weight: 700;
-  color: #0e4d92;
+  color: #3b6d4f;
 }
 
 .alt-section {
   background: rgba(255, 255, 255, 0.78);
   border-radius: 32px;
   padding: clamp(2.2rem, 6vw, 3.2rem);
-  box-shadow: 0 16px 32px rgba(13, 27, 42, 0.18);
+  box-shadow: 0 16px 32px rgba(31, 42, 36, 0.18);
 }
 
 .feature-grid {
@@ -401,7 +401,7 @@ button {
   background: rgba(255, 255, 255, 0.88);
   border-radius: 18px;
   padding: 1.5rem;
-  box-shadow: inset 0 0 0 1px rgba(13, 27, 42, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(31, 42, 36, 0.08);
   display: grid;
   gap: 0.6rem;
 }
@@ -420,7 +420,7 @@ button {
   background: rgba(255, 255, 255, 0.88);
   border-radius: 18px;
   padding: 1.6rem;
-  box-shadow: inset 0 0 0 1px rgba(13, 27, 42, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(31, 42, 36, 0.08);
   display: grid;
   gap: 0.6rem;
 }
@@ -434,7 +434,7 @@ button {
   padding-left: 1.1rem;
   display: grid;
   gap: 0.45rem;
-  color: rgba(13, 27, 42, 0.74);
+  color: rgba(31, 42, 36, 0.74);
 }
 
 .gallery-grid {
@@ -447,7 +447,7 @@ button {
   background: rgba(255, 255, 255, 0.92);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 16px 32px rgba(4, 10, 32, 0.18);
+  box-shadow: 0 16px 32px rgba(20, 28, 22, 0.18);
   display: grid;
 }
 
@@ -463,7 +463,7 @@ button {
   padding: 1.2rem 1.4rem 1.4rem;
   font-weight: 600;
   line-height: 1.5;
-  color: rgba(13, 27, 42, 0.82);
+  color: rgba(31, 42, 36, 0.82);
 }
 
 .testimonials-grid {
@@ -478,7 +478,7 @@ button {
   padding: 1.8rem 1.6rem;
   display: grid;
   gap: 1rem;
-  box-shadow: inset 0 0 0 1px rgba(13, 27, 42, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(31, 42, 36, 0.06);
 }
 
 .testimonial-quote {
@@ -499,11 +499,11 @@ button {
 
 .testimonial-role {
   font-size: 0.85rem;
-  color: rgba(13, 27, 42, 0.6);
+  color: rgba(31, 42, 36, 0.6);
 }
 
 .cta-section {
-  background: linear-gradient(120deg, rgba(254, 246, 195, 0.95), rgba(91, 213, 255, 0.65));
+  background: linear-gradient(120deg, rgba(250, 236, 197, 0.95), rgba(202, 172, 120, 0.52));
   border-radius: 30px;
   padding: clamp(2.4rem, 6vw, 3.6rem);
   box-shadow: 0 20px 36px rgba(8, 21, 46, 0.2);
@@ -525,7 +525,7 @@ button {
   background: rgba(255, 255, 255, 0.86);
   border-radius: 28px;
   padding: clamp(2.2rem, 6vw, 3.4rem);
-  box-shadow: 0 16px 32px rgba(13, 27, 42, 0.16);
+  box-shadow: 0 16px 32px rgba(31, 42, 36, 0.16);
 }
 
 .contact-grid {
@@ -539,7 +539,7 @@ button {
   background: rgba(255, 255, 255, 0.92);
   border-radius: 18px;
   padding: 1.4rem;
-  box-shadow: inset 0 0 0 1px rgba(13, 27, 42, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(31, 42, 36, 0.06);
   display: grid;
   gap: 0.4rem;
 }
@@ -552,11 +552,11 @@ button {
 
 .contact-card p {
   margin: 0;
-  color: rgba(13, 27, 42, 0.74);
+  color: rgba(31, 42, 36, 0.74);
 }
 
 .contact-card a {
-  color: #0e4d92;
+  color: #3b6d4f;
   font-weight: 600;
 }
 
@@ -566,7 +566,7 @@ button {
   list-style: none;
   display: grid;
   gap: 0.4rem;
-  color: rgba(13, 27, 42, 0.74);
+  color: rgba(31, 42, 36, 0.74);
 }
 
 .hours-day {
@@ -581,7 +581,7 @@ button {
   text-align: center;
   padding: 2rem 1rem 3rem;
   font-size: 0.9rem;
-  color: rgba(245, 251, 255, 0.82);
+  color: rgba(253, 250, 244, 0.82);
 }
 
 @media (max-width: 1024px) {
@@ -636,3 +636,4 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
