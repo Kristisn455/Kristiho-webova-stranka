@@ -1,7 +1,7 @@
 ﻿const h = window.React.createElement;
 const { useState } = window.React;
 
-const heroImage = "./assets/hero-lodge.jpg";
+const heroImage = "./assets/hero-chalet.jpg";
 
 const roomImages = {
   ridge: "./assets/room-suite.jpg",
@@ -150,6 +150,17 @@ const translations = {
         }
       ]
     },
+    sideMenu: [
+      { label: "O nás", target: "about" },
+      { label: "Izby", target: "rooms" },
+      { label: "Wellness", target: "wellness" },
+      { label: "Gastronómia", target: "dining" },
+      { label: "Jedálny lístok", target: "menu" },
+      { label: "Zážitky", target: "experiences" },
+      { label: "Fotogaléria", target: "gallery" },
+      { label: "Referencie", target: "testimonials" },
+      { label: "Kontakt", target: "contact" }
+    ],
     experiences: {
       title: "Čo môžete zažiť",
       description: "Denne pripravujeme program od pohodových prechádzok až po remeselné workshopy.",
@@ -210,7 +221,7 @@ const translations = {
       note: "Parkovanie je bezplatné priamo pri penzióne. Transfer z vlakovej stanice zabezpečíme na požiadanie."
     },
     footer: {
-      note: "2025 Penzión Didian – ukážkový projekt."
+      note: "© 2025 Penzión Didian – ukážkový projekt."
     }
   },
   en: {
@@ -346,6 +357,17 @@ const translations = {
         }
       ]
     },
+    sideMenu: [
+      { label: "About", target: "about" },
+      { label: "Rooms", target: "rooms" },
+      { label: "Wellness", target: "wellness" },
+      { label: "Dining", target: "dining" },
+      { label: "Menu", target: "menu" },
+      { label: "Experiences", target: "experiences" },
+      { label: "Gallery", target: "gallery" },
+      { label: "Testimonials", target: "testimonials" },
+      { label: "Contact", target: "contact" }
+    ],
     experiences: {
       title: "Experiences",
       description: "Daily programmes from relaxed walks to craft workshops.",
@@ -397,15 +419,15 @@ const translations = {
       note: "Parking right next to the lodge. Station transfer available on request."
     },
     footer: {
-      note: "2025 Didian Guesthouse – showcase project."
+      note: "© 2025 Didian Guesthouse – showcase project."
     }
   }
 };
+
 const languages = [
   { code: "sk", label: "SK" },
   { code: "en", label: "EN" }
 ];
-
 function Navigation({ items, onNavigate }) {
   return h(
     "nav",
@@ -516,6 +538,7 @@ function MenuCategory({ category }) {
     )
   ]);
 }
+
 function ExperienceColumn({ title, items }) {
   return h("article", { className: "experience-column" }, [
     h("h3", { key: "title" }, title),
@@ -560,6 +583,31 @@ function ContactHours({ title, hours }) {
   ]);
 }
 
+function SideMenu({ items, onNavigate }) {
+  return h(
+    "aside",
+    { className: "side-menu" },
+    h(
+      "ul",
+      { className: "side-menu-list" },
+      items.map((item) =>
+        h(
+          "li",
+          { key: item.target },
+          h(
+            "button",
+            {
+              type: "button",
+              className: "side-menu-button",
+              onClick: () => onNavigate(item.target)
+            },
+            item.label
+          )
+        )
+      )
+    )
+  );
+}
 export default function App() {
   const [language, setLanguage] = useState("sk");
   const t = translations[language];
@@ -570,6 +618,165 @@ export default function App() {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+
+  const contentSections = [
+    h("section", { key: "about", id: "about", className: "section about-section" }, [
+      h("div", { key: "intro", className: "section-intro" }, [
+        h("h2", { key: "title", className: "section-title" }, t.about.title),
+        h("p", { key: "text", className: "section-text" }, t.about.text)
+      ]),
+      h(
+        "div",
+        { key: "stats", className: "stats-grid" },
+        t.about.stats.map((stat) => h(StatCard, { key: stat.label, ...stat }))
+      ),
+      h("p", { key: "note", className: "section-note" }, t.about.note)
+    ]),
+    h("section", { key: "rooms", id: "rooms", className: "section rooms-section" }, [
+      h("div", { key: "intro", className: "section-intro" }, [
+        h("h2", { key: "title", className: "section-title" }, t.rooms.title),
+        h("p", { key: "subtitle", className: "section-text" }, t.rooms.subtitle)
+      ]),
+      h(
+        "div",
+        { key: "grid", className: "rooms-grid" },
+        t.rooms.items.map((item) => h(RoomCard, { key: item.name, item }))
+      )
+    ]),
+    h("section", { key: "wellness", id: "wellness", className: "section wellness-section" }, [
+      h("div", { key: "intro", className: "section-intro" }, [
+        h("h2", { key: "title", className: "section-title" }, t.wellness.title),
+        h("p", { key: "text", className: "section-text" }, t.wellness.description)
+      ]),
+      h(
+        "div",
+        { key: "features", className: "feature-grid" },
+        t.wellness.features.map((feature) =>
+          h(FeatureCard, { key: feature.title, ...feature })
+        )
+      )
+    ]),
+    h("section", { key: "dining", id: "dining", className: "section dining-section" }, [
+      h("div", { key: "intro", className: "section-intro" }, [
+        h("h2", { key: "title", className: "section-title" }, t.dining.title),
+        h("p", { key: "text", className: "section-text" }, t.dining.description)
+      ]),
+      h(
+        "div",
+        { key: "features", className: "feature-grid" },
+        t.dining.features.map((feature) =>
+          h(FeatureCard, { key: feature.title, ...feature })
+        )
+      )
+    ]),
+    h("section", { key: "menu", id: "menu", className: "section menu-section" }, [
+      h("div", { key: "intro", className: "section-intro" }, [
+        h("h2", { key: "title", className: "section-title" }, t.menu.title),
+        h("p", { key: "text", className: "section-text" }, t.menu.description)
+      ]),
+      h(
+        "div",
+        { key: "grid", className: "menu-grid" },
+        t.menu.categories.map((category) =>
+          h(MenuCategory, { key: category.name, category })
+        )
+      )
+    ]),
+    h("section", { key: "experiences", id: "experiences", className: "section experiences-section" }, [
+      h("div", { key: "intro", className: "section-intro" }, [
+        h("h2", { key: "title", className: "section-title" }, t.experiences.title),
+        h("p", { key: "text", className: "section-text" }, t.experiences.description)
+      ]),
+      h(
+        "div",
+        { key: "columns", className: "experiences-columns" },
+        t.experiences.highlights.map((column) =>
+          h(ExperienceColumn, { key: column.title, ...column })
+        )
+      )
+    ]),
+    h("section", { key: "gallery", id: "gallery", className: "section gallery-section" }, [
+      h("div", { key: "intro", className: "section-intro" }, [
+        h("h2", { key: "title", className: "section-title" }, t.gallery.title),
+        h("p", { key: "text", className: "section-text" }, t.gallery.description)
+      ]),
+      h(
+        "div",
+        { key: "grid", className: "gallery-grid" },
+        t.gallery.images.map((item) => h(GalleryCard, { key: item.caption, ...item }))
+      )
+    ]),
+    h("section", { key: "testimonials", id: "testimonials", className: "section testimonials-section" }, [
+      h("div", { key: "intro", className: "section-intro" }, [
+        h("h2", { key: "title", className: "section-title" }, t.testimonials.title)
+      ]),
+      h(
+        "div",
+        { key: "grid", className: "testimonials-grid" },
+        t.testimonials.items.map((item, index) =>
+          h(TestimonialCard, { key: `${item.name}-${index}`, ...item })
+        )
+      )
+    ]),
+    h("section", { key: "cta", className: "section cta-section" }, [
+      h("div", { key: "panel", className: "cta-panel" }, [
+        h("h2", { key: "title", className: "section-title" }, t.callToAction.title),
+        h("p", { key: "text", className: "section-text" }, t.callToAction.text),
+        h("div", { key: "buttons", className: "cta-buttons" }, [
+          h(
+            "button",
+            {
+              key: "primary",
+              type: "button",
+              className: "hero-primary",
+              onClick: () => scrollToSection("contact")
+            },
+            t.callToAction.primary
+          ),
+          h(
+            "button",
+            {
+              key: "secondary",
+              type: "button",
+              className: "hero-secondary",
+              onClick: () => scrollToSection("rooms")
+            },
+            t.callToAction.secondary
+          )
+        ])
+      ])
+    ]),
+    h("section", { key: "contact", id: "contact", className: "section contact-section" }, [
+      h("div", { key: "intro", className: "section-intro" }, [
+        h("h2", { key: "title", className: "section-title" }, t.contact.title),
+        h("p", { key: "text", className: "section-text" }, t.contact.description)
+      ]),
+      h("div", { key: "grid", className: "contact-grid" }, [
+        h("div", { key: "address", className: "contact-card" }, [
+          h("h3", { key: "label" }, t.contact.addressLabel),
+          h("p", { key: "value" }, t.contact.address)
+        ]),
+        h("div", { key: "phone", className: "contact-card" }, [
+          h("h3", { key: "label" }, t.contact.phoneLabel),
+          h(
+            "a",
+            { key: "value", href: `tel:${t.contact.phone}` },
+            t.contact.phone
+          )
+        ]),
+        h("div", { key: "email", className: "contact-card" }, [
+          h("h3", { key: "label" }, t.contact.emailLabel),
+          h(
+            "a",
+            { key: "value", href: `mailto:${t.contact.email}` },
+            t.contact.email
+          )
+        ]),
+        h(ContactHours, { key: "hours", title: t.contact.hoursTitle, hours: t.contact.hours })
+      ]),
+      h("p", { key: "note", className: "section-note" }, t.contact.note)
+    ])
+  ];
 
   return h("div", { className: "site-wrapper" }, [
     h("header", { key: "topbar", className: "topbar" }, [
@@ -593,209 +800,58 @@ export default function App() {
         "section",
         { key: "hero", id: "hero", className: "hero-section" },
         [
-          h("div", { key: "hero-media", className: "hero-media" }, [
-            h("img", {
-              key: "hero-image",
-              className: "hero-image",
-              src: heroImage,
-              alt: "Penzión Didian – horská drevenica",
-              loading: "lazy"
-            })
-          ]),
-          h("div", { key: "hero-content", className: "hero-inner" }, [
-            h("div", { key: "badge", className: "hero-badge" }, t.hero.badge),
-            h("h1", { key: "title", className: "hero-title" }, t.hero.title),
-            h("p", { key: "description", className: "hero-description" }, t.hero.description),
-            h(
-              "div",
-              { key: "highlights", className: "hero-highlights" },
-              t.hero.highlights.map((item, index) =>
-                h("span", { key: `${item}-${index}`, className: "hero-pill" }, item)
-              )
-            ),
-            h("div", { key: "ctas", className: "hero-ctas" }, [
+          h("div", { key: "hero-card", className: "hero-card" }, [
+            h("figure", { key: "media", className: "hero-media" }, [
+              h("img", {
+                key: "hero-image",
+                className: "hero-image",
+                src: heroImage,
+                alt: "Penzión Didian – horská drevenica",
+                loading: "lazy"
+              })
+            ]),
+            h("div", { key: "content", className: "hero-inner" }, [
+              h("div", { key: "badge", className: "hero-badge" }, t.hero.badge),
+              h("h1", { key: "title", className: "hero-title" }, t.hero.title),
+              h("p", { key: "description", className: "hero-description" }, t.hero.description),
               h(
-                "button",
-                {
-                  key: "primary",
-                  type: "button",
-                  className: "hero-primary",
-                  onClick: () => scrollToSection("rooms")
-                },
-                t.hero.ctaPrimary
+                "div",
+                { key: "highlights", className: "hero-highlights" },
+                t.hero.highlights.map((item, index) =>
+                  h("span", { key: `${item}-${index}`, className: "hero-pill" }, item)
+                )
               ),
-              h(
-                "button",
-                {
-                  key: "secondary",
-                  type: "button",
-                  className: "hero-secondary",
-                  onClick: () => scrollToSection("menu")
-                },
-                t.hero.ctaSecondary
-              )
+              h("div", { key: "ctas", className: "hero-ctas" }, [
+                h(
+                  "button",
+                  {
+                    key: "primary",
+                    type: "button",
+                    className: "hero-primary",
+                    onClick: () => scrollToSection("rooms")
+                  },
+                  t.hero.ctaPrimary
+                ),
+                h(
+                  "button",
+                  {
+                    key: "secondary",
+                    type: "button",
+                    className: "hero-secondary",
+                    onClick: () => scrollToSection("menu")
+                  },
+                  t.hero.ctaSecondary
+                )
+              ])
             ])
           ])
         ]
       ),
-      h("section", { key: "about", id: "about", className: "section about-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.about.title),
-          h("p", { key: "text", className: "section-text" }, t.about.text)
-        ]),
-        h(
-          "div",
-          { key: "stats", className: "stats-grid" },
-          t.about.stats.map((stat) => h(StatCard, { key: stat.label, ...stat }))
-        ),
-        h("p", { key: "note", className: "section-note" }, t.about.note)
-      ]),
-      h("section", { key: "rooms", id: "rooms", className: "section rooms-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.rooms.title),
-          h("p", { key: "subtitle", className: "section-text" }, t.rooms.subtitle)
-        ]),
-        h(
-          "div",
-          { key: "grid", className: "rooms-grid" },
-          t.rooms.items.map((item) => h(RoomCard, { key: item.name, item }))
-        )
-      ]),
-      h("section", { key: "wellness", id: "wellness", className: "section wellness-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.wellness.title),
-          h("p", { key: "text", className: "section-text" }, t.wellness.description)
-        ]),
-        h(
-          "div",
-          { key: "features", className: "feature-grid" },
-          t.wellness.features.map((feature) =>
-            h(FeatureCard, { key: feature.title, ...feature })
-          )
-        )
-      ]),
-      h("section", { key: "dining", id: "dining", className: "section dining-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.dining.title),
-          h("p", { key: "text", className: "section-text" }, t.dining.description)
-        ]),
-        h(
-          "div",
-          { key: "features", className: "feature-grid" },
-          t.dining.features.map((feature) =>
-            h(FeatureCard, { key: feature.title, ...feature })
-          )
-        )
-      ]),
-      h("section", { key: "menu", id: "menu", className: "section menu-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.menu.title),
-          h("p", { key: "text", className: "section-text" }, t.menu.description)
-        ]),
-        h(
-          "div",
-          { key: "grid", className: "menu-grid" },
-          t.menu.categories.map((category) =>
-            h(MenuCategory, { key: category.name, category })
-          )
-        )
-      ]),
-      h("section", { key: "experiences", id: "experiences", className: "section experiences-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.experiences.title),
-          h("p", { key: "text", className: "section-text" }, t.experiences.description)
-        ]),
-        h(
-          "div",
-          { key: "columns", className: "experiences-columns" },
-          t.experiences.highlights.map((column) =>
-            h(ExperienceColumn, { key: column.title, ...column })
-          )
-        )
-      ]),
-      h("section", { key: "gallery", id: "gallery", className: "section gallery-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.gallery.title),
-          h("p", { key: "text", className: "section-text" }, t.gallery.description)
-        ]),
-        h(
-          "div",
-          { key: "grid", className: "gallery-grid" },
-          t.gallery.images.map((item) => h(GalleryCard, { key: item.caption, ...item }))
-        )
-      ]),
-      h("section", { key: "testimonials", id: "testimonials", className: "section testimonials-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.testimonials.title)
-        ]),
-        h(
-          "div",
-          { key: "grid", className: "testimonials-grid" },
-          t.testimonials.items.map((item, index) =>
-            h(TestimonialCard, { key: `${item.name}-${index}`, ...item })
-          )
-        )
-      ]),
-      h("section", { key: "cta", className: "section cta-section" }, [
-        h("div", { key: "panel", className: "cta-panel" }, [
-          h("h2", { key: "title", className: "section-title" }, t.callToAction.title),
-          h("p", { key: "text", className: "section-text" }, t.callToAction.text),
-          h("div", { key: "buttons", className: "cta-buttons" }, [
-            h(
-              "button",
-              {
-                key: "primary",
-                type: "button",
-                className: "hero-primary",
-                onClick: () => scrollToSection("contact")
-              },
-              t.callToAction.primary
-            ),
-            h(
-              "button",
-              {
-                key: "secondary",
-                type: "button",
-                className: "hero-secondary",
-                onClick: () => scrollToSection("rooms")
-              },
-              t.callToAction.secondary
-            )
-          ])
-        ])
-      ]),
-      h("section", { key: "contact", id: "contact", className: "section contact-section" }, [
-        h("div", { key: "intro", className: "section-intro" }, [
-          h("h2", { key: "title", className: "section-title" }, t.contact.title),
-          h("p", { key: "text", className: "section-text" }, t.contact.description)
-        ]),
-        h("div", { key: "grid", className: "contact-grid" }, [
-          h("div", { key: "address", className: "contact-card" }, [
-            h("h3", { key: "label" }, t.contact.addressLabel),
-            h("p", { key: "value" }, t.contact.address)
-          ]),
-          h("div", { key: "phone", className: "contact-card" }, [
-            h("h3", { key: "label" }, t.contact.phoneLabel),
-            h(
-              "a",
-              { key: "value", href: `tel:${t.contact.phone}` },
-              t.contact.phone
-            )
-          ]),
-          h("div", { key: "email", className: "contact-card" }, [
-            h("h3", { key: "label" }, t.contact.emailLabel),
-            h(
-              "a",
-              { key: "value", href: `mailto:${t.contact.email}` },
-              t.contact.email
-            )
-          ]),
-          h(ContactHours, { key: "hours", title: t.contact.hoursTitle, hours: t.contact.hours })
-        ]),
-        h("p", { key: "note", className: "section-note" }, t.contact.note)
+      h("div", { key: "content", className: "content-layout" }, [
+        h(SideMenu, { key: "side", items: t.sideMenu, onNavigate: scrollToSection }),
+        h("div", { key: "stack", className: "section-stack" }, contentSections)
       ])
     ]),
     h("footer", { key: "footer", className: "site-footer" }, t.footer.note)
   ]);
 }
-
