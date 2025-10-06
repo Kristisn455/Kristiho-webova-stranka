@@ -619,11 +619,11 @@ function renderSection(sectionKey, t) {
           ]),
           h("div", { key: "phone", className: "contact-card" }, [
             h("h3", { key: "label" }, section.phoneLabel),
-            h("a", { key: "link", href: 	el: }, section.phone)
+            h("a", { key: "link", href: `tel:${section.phone}` }, section.phone)
           ]),
           h("div", { key: "email", className: "contact-card" }, [
             h("h3", { key: "label" }, section.emailLabel),
-            h("a", { key: "link", href: mailto: }, section.email)
+            h("a", { key: "link", href: `mailto:${section.email}` }, section.email)
           ]),
           h(ContactHours, { key: "hours", title: section.hoursTitle, hours: section.hours })
         ]),
@@ -672,4 +672,5 @@ export default function App() {
     h("footer", { key: "footer", className: "site-footer" }, "© 2025 Didian Guesthouse – showcase project.")
   ]);
 }
+
 
