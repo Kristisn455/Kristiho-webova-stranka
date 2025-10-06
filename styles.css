@@ -603,3 +603,32 @@ button {
     align-items: stretch;
   }
 }
+
+.side-menu-button.active {
+  background: var(--gold-accent);
+  color: var(--brown-dark);
+  transform: translateX(4px);
+}
+
+.home-panel {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.home-intro p {
+  margin: 0;
+  line-height: 1.7;
+  color: rgba(255, 239, 207, 0.86);
+}
+
+.home-points {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.4rem;
+  color: rgba(255, 239, 207, 0.88);
+}
+
+.home-points li::marker {
+  color: var(--gold-accent);
+}
