@@ -1,19 +1,19 @@
 ﻿const h = window.React.createElement;
 const { useState } = window.React;
 
-const heroImage = "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=80";
+const heroImage = "../assets/hero-lodge.jpg";
 
 const roomImages = {
-  ridge: "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=1200&q=80",
-  family: "https://images.unsplash.com/photo-1523419409543-0c1df022bdd1?auto=format&fit=crop&w=1200&q=80",
-  attic: "https://images.unsplash.com/photo-1600585154340-0ef3c08c0632?auto=format&fit=crop&w=1200&q=80"
+  ridge: "../assets/room-suite.jpg",
+  family: "../assets/room-family.jpg",
+  attic: "../assets/room-attic.jpg"
 };
 
 const galleryImages = {
-  dawn: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
-  lounge: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
-  trail: "https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?auto=format&fit=crop&w=1200&q=80",
-  spa: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80"
+  lounge: "../assets/lodge-lounge.jpg",
+  dining: "../assets/dining-local.jpg",
+  trail: "../assets/trail-forest.jpg",
+  spa: "../assets/spa-tub.jpg"
 };
 
 const translations = {
@@ -22,79 +22,78 @@ const translations = {
     languageLabel: "Jazyk",
     nav: [
       { label: "Domov", target: "hero" },
-      { label: "O penzióne", target: "about" },
-      { label: "Izby", target: "rooms" },
-      { label: "Relax", target: "wellness" },
-      { label: "Gastronómia", target: "dining" },
-      { label: "Zážitky", target: "experiences" },
-      { label: "Galéria", target: "gallery" },
-      { label: "Kontakt", target: "contact" }
+      { label: "O penzióne", target: "about", page: "./pages/about.html" },
+      { label: "Izby", target: "rooms", page: "./pages/rooms.html" },
+      { label: "Relax", target: "wellness", page: "./pages/wellness.html" },
+      { label: "Gastronómia", target: "dining", page: "./pages/dining.html" },
+      { label: "Zážitky", target: "experiences", page: "./pages/experiences.html" },
+      { label: "Galéria", target: "gallery", page: "./pages/gallery.html" },
+      { label: "Kontakt", target: "contact", page: "./pages/contact.html" }
     ],
     hero: {
       badge: "Penzión Didian",
-      title: "Tichá horská drevenica pod hrebeňom Didiany",
-      description: "Fiktívny penzión Didian spája poctivú drevenú architektúru, moderný wellness a príbehy obce Zelená dolina. Ponárame hostí do horského života so šepotom smrekov a remeselnou kuchyňou.",
+      title: "Rodinný penzión uprostred horskej doliny",
+      description: "Didian je fiktívny penzión v Zelenej doline. Drevené interiéry, vôňa rúbaného dreva a osobná starostlivosť našej rodiny vytvárajú pobyt, ktorý pôsobí skutočne a útulne.",
       highlights: [
-        "Autorský wellness v drevenom kúpeli",
-        "Izby s ručne maľovanými ornamentmi",
-        "Folklórne večery a horské túry"
+        "Raňajky z lokálnych fariem",
+        "Wellness zóna s bylinkovou kaďou",
+        "Sprievodca po okolitých hrebeňoch"
       ],
-      ctaPrimary: "Zistiť dostupnosť",
-      ctaSecondary: "Stiahnuť brožúru",
-      image: heroImage
+      ctaPrimary: "Pozrieť izby",
+      ctaSecondary: "Virtuálna prehliadka"
     },
     about: {
-      title: "Príbeh Didian v Zelenej doline",
-      text: "Didian je rodinná drevenica, ktorú sme obnovili s miestnymi majstrami. V každej izbe cítiť vôňu borovice, v jedálni praská kachľová pec a terasa hľadí na rúbanisko, ktoré sa vracia späť lesu.",
+      title: "Ako vznikol penzión Didian",
+      text: "Na mieste starej salašníckej usadlosti sme obnovili penzión s ôsmimi izbami a jednou panoramatickou suitou. Naša rodina ho vedie s dôrazom na remeselné detaily, poctivú kuchyňu a pokojné služby.",
       stats: [
         { label: "Rok obnovy", value: "2024" },
-        { label: "Izby a suity", value: "17" },
-        { label: "Wellness zóny", value: "3" },
-        { label: "Hostia ročne", value: "3 500" }
+        { label: "Izby", value: "8" },
+        { label: "Suita", value: "1" },
+        { label: "Hosťov ročne", value: "3 200" }
       ],
-      note: "Penzión Didian je fiktívny projekt inšpirovaný tradičnými penziónmi pod horami."
+      note: "Penzión Didian je ukážkový projekt vytvorený pre potreby prezentácie."
     },
     rooms: {
-      title: "Izby s vôňou dreva",
-      subtitle: "Tri podpisové kategórie navrhnuté pre páry, rodiny aj solitérne duše.",
+      title: "Naše izby",
+      subtitle: "Tri kategórie navrhnuté pre páry, rodiny aj sólo cestovateľov.",
       items: [
         {
           name: "Panoramatická suita Hrebeň",
           size: "65 m²",
           sleeps: "2 – 4 hostia",
-          description: "Dvojizbová suita s presklenou stenou, vlastnou infrasaunou a výhľadom na horské lúky.",
+          description: "Presklená obývačka s výhľadom na dolinu, vlastná infrasauna a kúpeľňa s vaňou.",
           perks: [
-            "Privátna terasa so sedením z jelše",
-            "Rituál večerného čaju od Didianovej babky",
-            "Mini knižnica s horskými mapami"
+            "Súkromná terasa",
+            "Servis raňajok do suity",
+            "Večerný čajový rituál"
           ],
           price: "od 210 € / noc",
           image: roomImages.ridge,
-          imageAlt: "Panoramatická suita s výhľadom na hory"
+          imageAlt: "Panoramatická suita penziónu Didian"
         },
         {
           name: "Rodinná izba Pastierka",
           size: "42 m²",
           sleeps: "2 – 5 hostí",
-          description: "Drevené obklady, oddelená detská nika a tradičné prehozy tkané v susednej manufaktúre.",
+          description: "Samostatná detská nika, hojdačka v čitárni a vyhrievaná podlaha v kúpeľni.",
           perks: [
-            "Interaktívna mapa rodinných výletov",
-            "Hojdačky v interiérovom zákutí",
-            "Detský welcome balíček s remeselnými hrami"
+            "Detský uvítací balíček",
+            "Tipy na výlety v okolí",
+            "Večerné čítanie rozprávok"
           ],
           price: "od 165 € / noc",
           image: roomImages.family,
-          imageAlt: "Rodinná izba s drevenými detailmi"
+          imageAlt: "Rodinná izba so sedením"
         },
         {
           name: "Podkrovné štúdio Didian",
-          size: "34 m²",
+          size: "28 m²",
           sleeps: "1 – 2 hostia",
-          description: "Atmosférické podkrovie so svetlíkom, stolíkom pre zápis cesty a posteľou orientovanou na východ slnka.",
+          description: "Atmosférické podkrovie s pracovným stolom, zvukovou izoláciou a výhľadom na les.",
           perks: [
-            "Audio príbehy o živote v horách",
-            "Večerný bylinkový sprej na vankúš",
-            "Rezervované miesto v spoločenskej knižnici"
+            "Kávovar a čajový bar",
+            "Playlist horských melódií",
+            "Prístup do spoločenskej knižnice"
           ],
           price: "od 135 € / noc",
           image: roomImages.attic,
@@ -103,142 +102,84 @@ const translations = {
       ]
     },
     wellness: {
-      title: "Relax po horskom dni",
-      description: "Naše wellness zázemie spája tradičné rituály s modernou regeneráciou. Všetko obohatené o vôňu kosodreviny a tichý zvuk potoka.",
+      title: "Wellness & relax",
+      description: "Malá wellness zóna ponúka bylinkovú kaďu, fínsku saunu a miestnosť na individuálne masáže.",
       features: [
-        {
-          title: "Bylinkové kúpele",
-          detail: "Kúpacie kade z jedľového dreva so zmesou horských bylín a minerálnou vodou."
-        },
-        {
-          title: "Salašnícka sauna",
-          detail: "Saunová ceremónia s horúcimi kameňmi, solnými peelingmi a zvukom fujary."
-        },
-        {
-          title: "Regeneračný ateliér",
-          detail: "Masáže po túrach, dychové cvičenia a strečing vedený horským sprievodcom."
-        }
+        { title: "Bylinková kaďa", detail: "Smrekové ihličie a horské bylinky v teplej vode s výhľadom na lúku." },
+        { title: "Fínska sauna", detail: "Denné rituály s éterickými olejmi a hudbou z hornej Oravy." },
+        { title: "Masážny ateliér", detail: "Lokálni terapeuti so zameraním na relaxačné a športové techniky." }
       ]
     },
     dining: {
-      title: "Gastronómia Didian",
-      description: "V kuchyni staviame na lokálnych farmách, sýtych raňajkách a kreatívnych večerných menu.",
+      title: "Kuchyňa Didian",
+      description: "Reštaurácia podáva raňajky formou bufetu, trojchodové večere a malý popoludňajší snack bar.",
       features: [
-        {
-          title: "Raňajky zo salaša",
-          detail: "Čerstvé pečivo, domáci syr, vajíčka z dvora a sirupy z horských plodov."
-        },
-        {
-          title: "Večera pri peci",
-          detail: "Sezónne štvorchodové menu servírované pri otvorenej kachľovej peci."
-        },
-        {
-          title: "Nočný čajový bar",
-          detail: "Infúzie z borievky, horca a malinových listov, k tomu remeselné koláče."
-        }
+        { title: "Raňajkový bufet", detail: "Domáce pečivo, regionálne syry a čerstvé vajíčka z farmy." },
+        { title: "Večerné menu", detail: "Sezónne suroviny z okolitých fariem, servírované pri krbe." },
+        { title: "Salašnícky snack", detail: "Polievky, domáce koláče a bylinkové limonády popoludní." }
       ]
     },
     experiences: {
-      title: "Zážitky so sprievodcom",
-      description: "Každý deň pripravujeme program, ktorý prepája krajinu, remeslo a komunitu Zelenej doliny.",
+      title: "Čo môžete zažiť",
+      description: "Denne pripravujeme program od pohodových prechádzok až po remeselné workshopy.",
       highlights: [
         {
-          title: "V prírode",
-          items: [
-            "Ranná prechádzka na hrebeň Didiany s fotopauzou",
-            "Cyklookruh po opustených pastvinách",
-            "Nočné pozorovanie hviezd pri ohnisku"
-          ]
+          title: "Vonku",
+          items: ["Výstup na hrebeň Didiany", "Školená turistická prehliadka", "Večerné pozorovanie hviezd"]
         },
         {
           title: "Remeslá",
-          items: [
-            "Maľovanie ornamentov na drevo",
-            "Výroba syra s miestnou syrárkou",
-            "Workshop horských bylinkových tinktúr"
-          ]
+          items: ["Maľovanie ľudových ornamentov", "Výroba syra na salaši", "Kurz bylinkových sirupov"]
         },
         {
-          title: "Komunita",
-          items: [
-            "Folklórny večer so susedmi",
-            "Diskusia o ochrane lesa",
-            "Kino pod holým nebom s horskými filmami"
-          ]
+          title: "Spoločné chvíle",
+          items: ["Folklórny večer pri ohnisku", "Filmový klub s horskou témou", "Degustácia lokálnych vín"]
         }
       ]
     },
     gallery: {
-      title: "Pohľady z Didianu",
-      description: "Nálada drevenice, ranné hmly aj večerné svetlá v jednej galérii.",
+      title: "Fotogaléria",
+      description: "Pohľad do salónika, reštaurácie, wellness aj na turistické trasy v okolí.",
       images: [
-        {
-          image: galleryImages.dawn,
-          alt: "Terasa penziónu v rannom svetle",
-          caption: "Raňajkový stôl na terase ponorený do hmly"
-        },
-        {
-          image: galleryImages.lounge,
-          alt: "Spoločenská miestnosť s kachľami",
-          caption: "Spoločenská knižnica so zavesenými lampášmi"
-        },
-        {
-          image: galleryImages.trail,
-          alt: "Turistický chodník v lese",
-          caption: "Lesný chodník na náročnejší popoludňajší výlet"
-        },
-        {
-          image: galleryImages.spa,
-          alt: "Wellness kútik s drevenou kaďou",
-          caption: "Bylinkový kúpeľ pripravený po návrate z túry"
-        }
+        { image: galleryImages.lounge, alt: "Salónik s krbom", caption: "Knižnica s krbom pre večerné posedenie." },
+        { image: galleryImages.dining, alt: "Reštauračný stôl", caption: "Večera z lokálnych ingrediencií." },
+        { image: galleryImages.trail, alt: "Lesný chodník", caption: "Lesný chodník smerujúci na horský hrebeň." },
+        { image: galleryImages.spa, alt: "Bylinková kaďa", caption: "Wellness kaďa s bylinkami a výhľadom." }
       ]
     },
     testimonials: {
-      title: "Hostia o Didiane",
+      title: "Hovoria o nás",
       items: [
-        {
-          quote: "Konečne miesto, kde wellness pôsobí autenticky a nič nepôsobí ako kulisa.",
-          name: "Ema, Bratislava",
-          role: "Hosťka víkendového pobytu"
-        },
-        {
-          quote: "Program pre deti bol tak kreatívny, že sme sa pridali aj my dospelí.",
-          name: "Rodina Nováková",
-          role: "Rodinné prázdniny"
-        },
-        {
-          quote: "Večera pri peci a rozprávanie o tradíciách ma preniesli do detstva.",
-          name: "Palo, Košice",
-          role: "Milovník folklóru"
-        }
+        { quote: "Pripomína pobyty u starých rodičov na dedine, ale s moderným komfortom.", name: "Marta", role: "rodinný víkend" },
+        { quote: "Perfektné zázemie po cyklovýlete, večer sme si užili wellness.", name: "Peter", role: "pár z Trnavy" },
+        { quote: "Deti milovali detský kútik a raňajky boli top.", name: "Novákovci", role: "rodinný pobyt" }
       ]
     },
     callToAction: {
-      title: "Pripravení na horský pobyt?",
-      text: "Napíšte nám preferovaný termín a pripravíme pre vás pobyt so všetkými detailmi.",
-      primary: "Kontaktujte recepciu",
+      title: "Naplánujte si pobyt",
+      text: "Napíšte nám, ktorý termín vám vyhovuje. Do 24 hodín pošleme ponuku s cenou a dostupnosťou.",
+      primary: "Kontaktovať recepciu",
       secondary: "Pozrieť izby"
     },
     contact: {
-      title: "Kontakt & príchod",
-      description: "Sme vám k dispozícii denne od 8:00 do 21:00. Mimo tohto času odpovieme do 12 hodín.",
+      title: "Kontakt",
+      description: "Recepcia je otvorená denne od 8:00 do 21:00. Mimo pracovných hodín odpovedáme do 12 hodín.",
       addressLabel: "Adresa",
       address: "Zelená dolina 128, 013 13 Lysá Lúka",
       phoneLabel: "Telefón",
       phone: "+421 901 555 210",
       emailLabel: "E-mail",
       email: "recepcia@penziondidian.sk",
-      hoursTitle: "Otváracie hodiny recepcie",
+      hoursTitle: "Otváracie hodiny",
       hours: [
         { day: "Pondelok – Piatok", hours: "08:00 – 21:00" },
         { day: "Sobota", hours: "08:00 – 22:00" },
         { day: "Nedeľa", hours: "08:00 – 20:00" }
       ],
-      note: "Parkovanie je vyhradené priamo pri drevenici. Transfer z vlakovej stanice zabezpečíme na požiadanie."
+      note: "Parkovanie je bezplatné priamo pri penzióne. Transfer z vlakovej stanice zabezpečíme na požiadanie."
     },
     footer: {
-      note: "© 2025 Penzión Didian. Fiktívny projekt vytvorený pre ukážku webu."
+      note: "© 2025 Penzión Didian – ukážkový projekt."
     }
   },
   en: {
@@ -246,79 +187,78 @@ const translations = {
     languageLabel: "Language",
     nav: [
       { label: "Home", target: "hero" },
-      { label: "About", target: "about" },
-      { label: "Rooms", target: "rooms" },
-      { label: "Relax", target: "wellness" },
-      { label: "Dining", target: "dining" },
-      { label: "Experiences", target: "experiences" },
-      { label: "Gallery", target: "gallery" },
-      { label: "Contact", target: "contact" }
+      { label: "About", target: "about", page: "./pages/about.en.html" },
+      { label: "Rooms", target: "rooms", page: "./pages/rooms.en.html" },
+      { label: "Wellness", target: "wellness", page: "./pages/wellness.en.html" },
+      { label: "Dining", target: "dining", page: "./pages/dining.en.html" },
+      { label: "Experiences", target: "experiences", page: "./pages/experiences.en.html" },
+      { label: "Gallery", target: "gallery", page: "./pages/gallery.en.html" },
+      { label: "Contact", target: "contact", page: "./pages/contact.en.html" }
     ],
     hero: {
       badge: "Didian Guesthouse",
-      title: "A quiet mountain lodge beneath the Didian ridge",
-      description: "The fictional Didian Guesthouse weaves timber architecture, a modern spa and the stories of Green Valley village. We immerse guests in mountain life with spruce whispers and craft cooking.",
+      title: "Family-run lodge in a quiet mountain valley",
+      description: "Didian Guesthouse is a fictional retreat in Green Valley. Timber interiors, the scent of firewood and personal hosting by our family make every stay feel genuine and warm.",
       highlights: [
-        "Signature wellness rituals in wooden tubs",
-        "Rooms painted with folk patterns",
-        "Guided folklore evenings and ridge hikes"
+        "Farm-to-table breakfast",
+        "Herbal tub & sauna corner",
+        "Guided hikes on nearby ridges"
       ],
-      ctaPrimary: "Check availability",
-      ctaSecondary: "Download brochure",
-      image: heroImage
+      ctaPrimary: "View rooms",
+      ctaSecondary: "Take a virtual tour"
     },
     about: {
-      title: "The Didian story in Green Valley",
-      text: "Didian is a family lodge restored together with local artisans. Every room carries the scent of pine, the dining hall glows with a tiled stove and the terrace faces forest that quietly returns to life.",
+      title: "Our story",
+      text: "We restored an old shepherd estate into a guesthouse with eight rooms and one panoramic suite. Our family runs it with attention to craft details, honest cuisine and unhurried service.",
       stats: [
-        { label: "Restored in", value: "2024" },
-        { label: "Rooms & suites", value: "17" },
-        { label: "Wellness zones", value: "3" },
-        { label: "Guests per year", value: "3,500" }
+        { label: "Restored", value: "2024" },
+        { label: "Rooms", value: "8" },
+        { label: "Suite", value: "1" },
+        { label: "Guests / year", value: "3,200" }
       ],
-      note: "Didian Guesthouse is a fictional project inspired by mountain pensions."
+      note: "Didian Guesthouse is a fictional showcase project."
     },
     rooms: {
-      title: "Rooms with the scent of timber",
-      subtitle: "Three signature categories crafted for couples, families and solo travelers.",
+      title: "Rooms",
+      subtitle: "Three room types designed for couples, families and solo travellers.",
       items: [
         {
-          name: "Panoramic Suite Ridge",
+          name: "Ridge panoramic suite",
           size: "65 m²",
           sleeps: "2 – 4 guests",
-          description: "A two-room suite with floor-to-ceiling glazing, private infrared sauna and meadow views.",
+          description: "Glass-fronted living room overlooking the valley, private infrared sauna and soaking tub.",
           perks: [
-            "Private terrace with alder seating",
-            "Evening tea ritual from the Didian family recipe",
-            "Mini library filled with hiking maps"
+            "Private terrace",
+            "Breakfast served in-suite",
+            "Evening tea ritual"
           ],
           price: "from €210 / night",
           image: roomImages.ridge,
-          imageAlt: "Panoramic suite overlooking the mountains"
+          imageAlt: "Panoramic suite of Didian Guesthouse"
         },
         {
-          name: "Family Room Shepherd",
+          name: "Shepherd family room",
           size: "42 m²",
           sleeps: "2 – 5 guests",
-          description: "Warm timber lining, a dedicated kids' nook and textiles woven in the neighboring workshop.",
+          description: "Dedicated kids' nook, reading swing corner and heated bathroom floor.",
           perks: [
-            "Interactive map of family-friendly trips",
-            "Indoor swing corner",
-            "Children's welcome kit with craft games"
+            "Family welcome kit",
+            "Daily trip suggestions",
+            "Bedtime story corner"
           ],
           price: "from €165 / night",
           image: roomImages.family,
-          imageAlt: "Family room with timber details"
+          imageAlt: "Family room with seating"
         },
         {
-          name: "Attic Studio Didian",
-          size: "34 m²",
+          name: "Attic studio",
+          size: "28 m²",
           sleeps: "1 – 2 guests",
-          description: "Atmospheric loft with skylight, writing desk for travel notes and a bed facing sunrise.",
+          description: "Atmospheric loft with writing desk, acoustic treatment and forest view.",
           perks: [
-            "Audio stories about mountain life",
-            "Nightly herbal pillow mist",
-            "Reserved seat in the lounge library"
+            "Coffee & tea station",
+            "Curated mountain playlist",
+            "Access to the lounge library"
           ],
           price: "from €135 / night",
           image: roomImages.attic,
@@ -327,142 +267,75 @@ const translations = {
       ]
     },
     wellness: {
-      title: "Unwind after a mountain day",
-      description: "Our wellness wing blends traditional rituals with contemporary recovery, always accompanied by alpine herbs and the murmur of a stream.",
+      title: "Wellness & relax",
+      description: "A compact wellness area with herbal tub, Finnish sauna and a dedicated massage room.",
       features: [
-        {
-          title: "Herbal soaking tubs",
-          detail: "Spruce-wood tubs infused with mountain herbs and mineral water."
-        },
-        {
-          title: "Shepherd sauna",
-          detail: "Sauna ceremonies with hot stones, salt scrubs and live fujara music."
-        },
-        {
-          title: "Recovery atelier",
-          detail: "Post-hike massages, breathwork and stretching led by a mountain guide."
-        }
+        { title: "Herbal tub", detail: "Spruce needles and alpine herbs in warm water overlooking the meadow." },
+        { title: "Finnish sauna", detail: "Daily rituals with essential oils and gentle local music." },
+        { title: "Massage studio", detail: "Certified therapists focusing on relaxation and post-hike recovery." }
       ]
     },
     dining: {
-      title: "Didian dining",
-      description: "The kitchen celebrates local farms, generous breakfasts and imaginative evening menus.",
+      title: "Dining",
+      description: "Breakfast buffet, three-course dinners and an afternoon snack bar served daily.",
       features: [
-        {
-          title: "Pasture breakfast",
-          detail: "Fresh bread, farmhouse cheese, yard eggs and syrups from mountain fruit."
-        },
-        {
-          title: "Stove-side dinner",
-          detail: "Seasonal four-course tasting served beside the open tile stove."
-        },
-        {
-          title: "Night tea bar",
-          detail: "Infusions of juniper, gentian and raspberry leaf paired with artisan cakes."
-        }
+        { title: "Breakfast buffet", detail: "House-made bread, regional cheese and free-range eggs." },
+        { title: "Dinner menu", detail: "Seasonal produce from nearby farms, plated by the fireplace." },
+        { title: "Shepherd snack", detail: "Soups, cakes and herbal lemonades in the afternoon." }
       ]
     },
     experiences: {
-      title: "Curated experiences",
-      description: "Each day we design a program that connects the landscape, craft and community of Green Valley.",
+      title: "Experiences",
+      description: "Programs curated every day from relaxed walks to craft workshops.",
       highlights: [
-        {
-          title: "Out in nature",
-          items: [
-            "Sunrise walk to the Didian ridge with a photo stop",
-            "Cycling loop across forgotten pastures",
-            "Night-time stargazing around the fire"
-          ]
-        },
-        {
-          title: "Craft & taste",
-          items: [
-            "Painting folk patterns on timber",
-            "Cheese making with a local cheesemonger",
-            "Mountain herbal tincture workshop"
-          ]
-        },
-        {
-          title: "Community",
-          items: [
-            "Folklore evening with neighbors",
-            "Talk on forest stewardship",
-            "Open-air cinema featuring mountain films"
-          ]
-        }
+        { title: "Outdoors", items: ["Hike to Didian ridge", "Guided village walk", "Stargazing around the fire"] },
+        { title: "Craft", items: ["Painting folk patterns", "Cheese making class", "Herbal syrup workshop"] },
+        { title: "Together", items: ["Folklore night", "Mountain film screening", "Regional wine tasting"] }
       ]
     },
     gallery: {
-      title: "Scenes from Didian",
-      description: "The mood of the lodge, mountain mornings and evening glow captured together.",
+      title: "Gallery",
+      description: "Lounge, restaurant, wellness and nearby trails captured for inspiration.",
       images: [
-        {
-          image: galleryImages.dawn,
-          alt: "Guesthouse terrace in morning light",
-          caption: "Breakfast table soaked in valley mist"
-        },
-        {
-          image: galleryImages.lounge,
-          alt: "Lounge with a tile stove",
-          caption: "Library lounge lit by hanging lanterns"
-        },
-        {
-          image: galleryImages.trail,
-          alt: "Forest hiking trail",
-          caption: "Trail leading to an adventurous afternoon hike"
-        },
-        {
-          image: galleryImages.spa,
-          alt: "Wellness corner with a wooden tub",
-          caption: "Herbal soak prepared after a day outside"
-        }
+        { image: galleryImages.lounge, alt: "Lounge with fireplace", caption: "Library lounge with evening atmosphere." },
+        { image: galleryImages.dining, alt: "Dining table", caption: "Dinner plated with local ingredients." },
+        { image: galleryImages.trail, alt: "Forest trail", caption: "Trail leading towards the mountain ridge." },
+        { image: galleryImages.spa, alt: "Herbal tub", caption: "Herbal spa tub ready after a day outside." }
       ]
     },
     testimonials: {
-      title: "Guests about Didian",
+      title: "Guest feedback",
       items: [
-        {
-          quote: "Finally a spa that feels authentic and never staged.",
-          name: "Emma, Bratislava",
-          role: "Weekend stay guest"
-        },
-        {
-          quote: "The children's program was so creative that we joined in ourselves.",
-          name: "Novak family",
-          role: "Family holiday"
-        },
-        {
-          quote: "Dinner by the stove and the stories about tradition brought back childhood memories.",
-          name: "Paul, Košice",
-          role: "Folklore enthusiast"
-        }
+        { quote: "Feels like visiting grandparents in the countryside, only with better beds.", name: "Sarah", role: "family weekend" },
+        { quote: "Perfect base after our cycling tour, and the wellness in the evening was ideal.", name: "Tom", role: "couple from Vienna" },
+        { quote: "Kids loved the reading corner and breakfast was fantastic.", name: "Novak family", role: "family stay" }
       ]
     },
     callToAction: {
-      title: "Ready for a mountain stay?",
-      text: "Send us your preferred dates and we will tailor every detail of the stay for you.",
+      title: "Plan your stay",
+      text: "Tell us your preferred dates and we will send an offer with availability within 24 hours.",
       primary: "Contact reception",
       secondary: "View rooms"
     },
     contact: {
-      title: "Contact & arrival",
-      description: "We are available daily from 8:00 to 21:00. Outside these hours we reply within 12 hours.",
+      title: "Contact",
+      description: "Front desk is open daily 8am – 9pm. Outside these hours we reply within 12 hours.",
       addressLabel: "Address",
       address: "Green Valley 128, 013 13 Lysá Lúka",
-      phoneLabel: "Telephone",
+      phoneLabel: "Phone",
       phone: "+421 901 555 210",
       emailLabel: "E-mail",
       email: "hello@didianlodge.com",
-      hoursTitle: "Reception opening hours",
+      hoursTitle: "Opening hours",
       hours: [
         { day: "Monday – Friday", hours: "08:00 – 21:00" },
         { day: "Saturday", hours: "08:00 – 22:00" },
         { day: "Sunday", hours: "08:00 – 20:00" }
       ],
-      note: "Parking is reserved right beside the lodge. We provide station transfer on request."
+      note: "Parking right next to the lodge. Station transfer available on request."
     },
     footer: {
-      note: "© 2025 Didian Guesthouse. Fictional project created for a web showcase."
+      note: "© 2025 Didian Guesthouse – showcase project."
     }
   }
 };
@@ -481,11 +354,15 @@ function Navigation({ items, onNavigate }) {
         "a",
         {
           key: item.target,
-          href: `#${item.target}`,
+          href: item.page ? item.page : `#${item.target}`,
           className: "nav-link",
           onClick: (event) => {
             event.preventDefault();
-            onNavigate(item.target);
+            if (item.page) {
+              window.open(item.page, "_blank", "noopener,noreferrer");
+            } else {
+              onNavigate(item.target);
+            }
           }
         },
         item.label
@@ -636,14 +513,18 @@ export default function App() {
     h("main", { key: "main", className: "main-content" }, [
       h(
         "section",
-        {
-          key: "hero",
-          id: "hero",
-          className: "hero-section",
-          style: { backgroundImage: `url(${t.hero.image})` }
-        },
+        { key: "hero", id: "hero", className: "hero-section" },
         [
-          h("div", { key: "inner", className: "hero-inner" }, [
+          h("div", { key: "hero-media", className: "hero-media" }, [
+            h("img", {
+              key: "hero-image",
+              className: "hero-image",
+              src: heroImage,
+              alt: "Penzión Didian – horská drevenica",
+              loading: "lazy"
+            })
+          ]),
+          h("div", { key: "hero-content", className: "hero-inner" }, [
             h("div", { key: "badge", className: "hero-badge" }, t.hero.badge),
             h("h1", { key: "title", className: "hero-title" }, t.hero.title),
             h("p", { key: "description", className: "hero-description" }, t.hero.description),
@@ -671,7 +552,7 @@ export default function App() {
                   key: "secondary",
                   type: "button",
                   className: "hero-secondary",
-                  onClick: () => scrollToSection("gallery")
+                  onClick: () => window.open(language === "sk" ? "./pages/gallery.html" : "./pages/gallery.en.html", "_blank", "noopener,noreferrer")
                 },
                 t.hero.ctaSecondary
               )
@@ -702,7 +583,7 @@ export default function App() {
           t.rooms.items.map((item) => h(RoomCard, { key: item.name, item }))
         )
       ]),
-      h("section", { key: "wellness", id: "wellness", className: "section alt-section" }, [
+      h("section", { key: "wellness", id: "wellness", className: "section wellness-section" }, [
         h("div", { key: "intro", className: "section-intro" }, [
           h("h2", { key: "title", className: "section-title" }, t.wellness.title),
           h("p", { key: "text", className: "section-text" }, t.wellness.description)
@@ -771,7 +652,7 @@ export default function App() {
                 key: "primary",
                 type: "button",
                 className: "hero-primary",
-                onClick: () => scrollToSection("contact")
+                onClick: () => window.open(language === "sk" ? "./pages/contact.html" : "./pages/contact.en.html", "_blank", "noopener,noreferrer")
               },
               t.callToAction.primary
             ),
@@ -822,3 +703,4 @@ export default function App() {
     h("footer", { key: "footer", className: "site-footer" }, t.footer.note)
   ]);
 }
+
