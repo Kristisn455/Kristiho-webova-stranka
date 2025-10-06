@@ -648,6 +648,84 @@ button {
     flex-direction: column;
   }
 }
+.menu-section {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 26px;
+  padding: clamp(2rem, 6vw, 3rem);
+  box-shadow: 0 18px 32px rgba(67, 88, 74, 0.16);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem;
+}
+
+.menu-card {
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 20px;
+  padding: 1.4rem;
+  box-shadow: inset 0 0 0 1px rgba(47, 55, 47, 0.08);
+  display: grid;
+  gap: 0.9rem;
+}
+
+.menu-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.menu-card-header h3 {
+  margin: 0;
+  font-family: "Lora", serif;
+  font-size: 1.1rem;
+}
+
+.menu-highlight {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(47, 55, 47, 0.6);
+  background: rgba(67, 88, 74, 0.12);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+
+.menu-item-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.menu-item-text {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.menu-item-name {
+  font-weight: 600;
+}
+
+.menu-item-detail {
+  font-size: 0.88rem;
+  color: rgba(47, 55, 47, 0.7);
+}
+
+.menu-item-price {
+  font-weight: 600;
+  color: #43584a;
+  white-space: nowrap;
+}
 .page-wrapper {
   max-width: 900px;
   margin: 0 auto;
@@ -704,3 +782,4 @@ button {
   color: #43584a;
   font-weight: 600;
 }
+

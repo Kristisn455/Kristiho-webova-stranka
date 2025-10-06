@@ -1,19 +1,19 @@
 ﻿const h = window.React.createElement;
 const { useState } = window.React;
 
-const heroImage = "../assets/hero-lodge.jpg";
+const heroImage = "./assets/hero-lodge.jpg";
 
 const roomImages = {
-  ridge: "../assets/room-suite.jpg",
-  family: "../assets/room-family.jpg",
-  attic: "../assets/room-attic.jpg"
+  ridge: "./assets/room-suite.jpg",
+  family: "./assets/room-family.jpg",
+  attic: "./assets/room-attic.jpg"
 };
 
 const galleryImages = {
-  lounge: "../assets/lodge-lounge.jpg",
-  dining: "../assets/dining-local.jpg",
-  trail: "../assets/trail-forest.jpg",
-  spa: "../assets/spa-tub.jpg"
+  lounge: "./assets/lodge-lounge.jpg",
+  dining: "./assets/dining-local.jpg",
+  trail: "./assets/trail-forest.jpg",
+  spa: "./assets/spa-tub.jpg"
 };
 
 const translations = {
@@ -22,13 +22,14 @@ const translations = {
     languageLabel: "Jazyk",
     nav: [
       { label: "Domov", target: "hero" },
-      { label: "O penzióne", target: "about", page: "./pages/about.html" },
-      { label: "Izby", target: "rooms", page: "./pages/rooms.html" },
-      { label: "Relax", target: "wellness", page: "./pages/wellness.html" },
-      { label: "Gastronómia", target: "dining", page: "./pages/dining.html" },
-      { label: "Zážitky", target: "experiences", page: "./pages/experiences.html" },
-      { label: "Galéria", target: "gallery", page: "./pages/gallery.html" },
-      { label: "Kontakt", target: "contact", page: "./pages/contact.html" }
+      { label: "O penzióne", target: "about" },
+      { label: "Izby", target: "rooms" },
+      { label: "Relax", target: "wellness" },
+      { label: "Gastronómia", target: "dining" },
+      { label: "Menu", target: "menu" },
+      { label: "Zážitky", target: "experiences" },
+      { label: "Galéria", target: "gallery" },
+      { label: "Kontakt", target: "contact" }
     ],
     hero: {
       badge: "Penzión Didian",
@@ -40,7 +41,7 @@ const translations = {
         "Sprievodca po okolitých hrebeňoch"
       ],
       ctaPrimary: "Pozrieť izby",
-      ctaSecondary: "Virtuálna prehliadka"
+      ctaSecondary: "Pozrieť menu"
     },
     about: {
       title: "Ako vznikol penzión Didian",
@@ -49,7 +50,7 @@ const translations = {
         { label: "Rok obnovy", value: "2024" },
         { label: "Izby", value: "8" },
         { label: "Suita", value: "1" },
-        { label: "Hosťov ročne", value: "3 200" }
+        { label: "Hostí ročne", value: "3 200" }
       ],
       note: "Penzión Didian je ukážkový projekt vytvorený pre potreby prezentácie."
     },
@@ -67,7 +68,7 @@ const translations = {
             "Servis raňajok do suity",
             "Večerný čajový rituál"
           ],
-          price: "od 210 € / noc",
+          price: "od 210 EUR / noc",
           image: roomImages.ridge,
           imageAlt: "Panoramatická suita penziónu Didian"
         },
@@ -81,7 +82,7 @@ const translations = {
             "Tipy na výlety v okolí",
             "Večerné čítanie rozprávok"
           ],
-          price: "od 165 € / noc",
+          price: "od 165 EUR / noc",
           image: roomImages.family,
           imageAlt: "Rodinná izba so sedením"
         },
@@ -95,7 +96,7 @@ const translations = {
             "Playlist horských melódií",
             "Prístup do spoločenskej knižnice"
           ],
-          price: "od 135 € / noc",
+          price: "od 135 EUR / noc",
           image: roomImages.attic,
           imageAlt: "Podkrovné štúdio s drevenými trámami"
         }
@@ -112,11 +113,41 @@ const translations = {
     },
     dining: {
       title: "Kuchyňa Didian",
-      description: "Reštaurácia podáva raňajky formou bufetu, trojchodové večere a malý popoludňajší snack bar.",
+      description: "Reštaurácia podáva raňajky formou bufetu, trojchodové večere a popoludňajší snack bar.",
       features: [
         { title: "Raňajkový bufet", detail: "Domáce pečivo, regionálne syry a čerstvé vajíčka z farmy." },
         { title: "Večerné menu", detail: "Sezónne suroviny z okolitých fariem, servírované pri krbe." },
         { title: "Salašnícky snack", detail: "Polievky, domáce koláče a bylinkové limonády popoludní." }
+      ]
+    },
+    menu: {
+      title: "Jedálny lístok",
+      description: "Menu sa mení podľa sezóny, no základné stálice ostávajú. Varíme z poctivých surovín od farmárov zo Zelenej doliny.",
+      categories: [
+        {
+          name: "Raňajky",
+          highlight: "Podávame 7:30 – 10:00",
+          items: [
+            { name: "Domáci chlieb s bylinkovým maslom", detail: "maslo so žeruchou, marinovaná pažítka, vajíčko na mäkko", price: "7 EUR" },
+            { name: "Ovsená kaša Didian", detail: "ovsené vločky, lesné ovocie, lieskové orechy, med", price: "6 EUR" }
+          ]
+        },
+        {
+          name: "Hlavné jedlá",
+          highlight: "Servírujeme 12:00 – 21:00",
+          items: [
+            { name: "Jelení guláš na víne", detail: "domáce noky, brusnicový džem, marinovaná cibuľka", price: "14 EUR" },
+            { name: "Pstruh z horského potoka", detail: "bylinkové maslo, pečená koreňová zelenina, citrónová pena", price: "15 EUR" }
+          ]
+        },
+        {
+          name: "Dezerty a nápoje",
+          highlight: "Pečieme a miešame denne",
+          items: [
+            { name: "Tvarožník Didian", detail: "tvaroh z farmy, šípkový rozvar, slaný karamel", price: "5 EUR" },
+            { name: "Bylinkový čaj z našej záhrady", detail: "mäta, medovka, materina dúška, horský med", price: "3 EUR" }
+          ]
+        }
       ]
     },
     experiences: {
@@ -143,7 +174,7 @@ const translations = {
       images: [
         { image: galleryImages.lounge, alt: "Salónik s krbom", caption: "Knižnica s krbom pre večerné posedenie." },
         { image: galleryImages.dining, alt: "Reštauračný stôl", caption: "Večera z lokálnych ingrediencií." },
-        { image: galleryImages.trail, alt: "Lesný chodník", caption: "Lesný chodník smerujúci na horský hrebeň." },
+        { image: galleryImages.trail, alt: "Lesný chodník", caption: "Chodník smerujúci na horský hrebeň." },
         { image: galleryImages.spa, alt: "Bylinková kaďa", caption: "Wellness kaďa s bylinkami a výhľadom." }
       ]
     },
@@ -179,7 +210,7 @@ const translations = {
       note: "Parkovanie je bezplatné priamo pri penzióne. Transfer z vlakovej stanice zabezpečíme na požiadanie."
     },
     footer: {
-      note: "© 2025 Penzión Didian – ukážkový projekt."
+      note: "2025 Penzión Didian – ukážkový projekt."
     }
   },
   en: {
@@ -187,29 +218,30 @@ const translations = {
     languageLabel: "Language",
     nav: [
       { label: "Home", target: "hero" },
-      { label: "About", target: "about", page: "./pages/about.en.html" },
-      { label: "Rooms", target: "rooms", page: "./pages/rooms.en.html" },
-      { label: "Wellness", target: "wellness", page: "./pages/wellness.en.html" },
-      { label: "Dining", target: "dining", page: "./pages/dining.en.html" },
-      { label: "Experiences", target: "experiences", page: "./pages/experiences.en.html" },
-      { label: "Gallery", target: "gallery", page: "./pages/gallery.en.html" },
-      { label: "Contact", target: "contact", page: "./pages/contact.en.html" }
+      { label: "About", target: "about" },
+      { label: "Rooms", target: "rooms" },
+      { label: "Wellness", target: "wellness" },
+      { label: "Dining", target: "dining" },
+      { label: "Menu", target: "menu" },
+      { label: "Experiences", target: "experiences" },
+      { label: "Gallery", target: "gallery" },
+      { label: "Contact", target: "contact" }
     ],
     hero: {
       badge: "Didian Guesthouse",
       title: "Family-run lodge in a quiet mountain valley",
-      description: "Didian Guesthouse is a fictional retreat in Green Valley. Timber interiors, the scent of firewood and personal hosting by our family make every stay feel genuine and warm.",
+      description: "The fictional Didian Guesthouse blends timber interiors, the scent of firewood and personal hosting from our family so every stay feels genuine.",
       highlights: [
         "Farm-to-table breakfast",
-        "Herbal tub & sauna corner",
+        "Herbal tub and sauna corner",
         "Guided hikes on nearby ridges"
       ],
       ctaPrimary: "View rooms",
-      ctaSecondary: "Take a virtual tour"
+      ctaSecondary: "See the menu"
     },
     about: {
       title: "Our story",
-      text: "We restored an old shepherd estate into a guesthouse with eight rooms and one panoramic suite. Our family runs it with attention to craft details, honest cuisine and unhurried service.",
+      text: "We restored an old shepherd estate into a guesthouse with eight rooms and one panoramic suite. Craft details, honest cuisine and unhurried service define the stay.",
       stats: [
         { label: "Restored", value: "2024" },
         { label: "Rooms", value: "8" },
@@ -232,7 +264,7 @@ const translations = {
             "Breakfast served in-suite",
             "Evening tea ritual"
           ],
-          price: "from €210 / night",
+          price: "from 210 EUR / night",
           image: roomImages.ridge,
           imageAlt: "Panoramic suite of Didian Guesthouse"
         },
@@ -246,7 +278,7 @@ const translations = {
             "Daily trip suggestions",
             "Bedtime story corner"
           ],
-          price: "from €165 / night",
+          price: "from 165 EUR / night",
           image: roomImages.family,
           imageAlt: "Family room with seating"
         },
@@ -260,7 +292,7 @@ const translations = {
             "Curated mountain playlist",
             "Access to the lounge library"
           ],
-          price: "from €135 / night",
+          price: "from 135 EUR / night",
           image: roomImages.attic,
           imageAlt: "Attic studio with timber beams"
         }
@@ -284,9 +316,39 @@ const translations = {
         { title: "Shepherd snack", detail: "Soups, cakes and herbal lemonades in the afternoon." }
       ]
     },
+    menu: {
+      title: "Sample menu",
+      description: "Menus change with the season; these signature dishes stay with us year-round.",
+      categories: [
+        {
+          name: "Breakfast",
+          highlight: "Served 7:30 – 10:00",
+          items: [
+            { name: "House bread with herb butter", detail: "garden cress butter, soft-boiled valley egg", price: "7 EUR" },
+            { name: "Didian oat bowl", detail: "oats, forest berries, hazelnuts, honey", price: "6 EUR" }
+          ]
+        },
+        {
+          name: "Mains",
+          highlight: "Available 12:00 – 21:00",
+          items: [
+            { name: "Venison stew", detail: "red wine sauce, dumplings, lingonberry preserve", price: "14 EUR" },
+            { name: "Mountain trout", detail: "herb butter, roasted root vegetables, lemon foam", price: "15 EUR" }
+          ]
+        },
+        {
+          name: "Desserts & drinks",
+          highlight: "Baked and brewed daily",
+          items: [
+            { name: "Didian cottage cheesecake", detail: "farm curd, rosehip coulis, salted caramel", price: "5 EUR" },
+            { name: "Garden herbal tea", detail: "mint, lemon balm, thyme, valley honey", price: "3 EUR" }
+          ]
+        }
+      ]
+    },
     experiences: {
       title: "Experiences",
-      description: "Programs curated every day from relaxed walks to craft workshops.",
+      description: "Daily programmes from relaxed walks to craft workshops.",
       highlights: [
         { title: "Outdoors", items: ["Hike to Didian ridge", "Guided village walk", "Stargazing around the fire"] },
         { title: "Craft", items: ["Painting folk patterns", "Cheese making class", "Herbal syrup workshop"] },
@@ -300,7 +362,7 @@ const translations = {
         { image: galleryImages.lounge, alt: "Lounge with fireplace", caption: "Library lounge with evening atmosphere." },
         { image: galleryImages.dining, alt: "Dining table", caption: "Dinner plated with local ingredients." },
         { image: galleryImages.trail, alt: "Forest trail", caption: "Trail leading towards the mountain ridge." },
-        { image: galleryImages.spa, alt: "Herbal tub", caption: "Herbal spa tub ready after a day outside." }
+        { image: galleryImages.spa, alt: "Herbal tub", caption: "Herbal spa tub prepared after a day outside." }
       ]
     },
     testimonials: {
@@ -335,11 +397,10 @@ const translations = {
       note: "Parking right next to the lodge. Station transfer available on request."
     },
     footer: {
-      note: "© 2025 Didian Guesthouse – showcase project."
+      note: "2025 Didian Guesthouse – showcase project."
     }
   }
 };
-
 const languages = [
   { code: "sk", label: "SK" },
   { code: "en", label: "EN" }
@@ -354,15 +415,11 @@ function Navigation({ items, onNavigate }) {
         "a",
         {
           key: item.target,
-          href: item.page ? item.page : `#${item.target}`,
+          href: `#${item.target}`,
           className: "nav-link",
           onClick: (event) => {
             event.preventDefault();
-            if (item.page) {
-              window.open(item.page, "_blank", "noopener,noreferrer");
-            } else {
-              onNavigate(item.target);
-            }
+            onNavigate(item.target);
           }
         },
         item.label
@@ -438,6 +495,27 @@ function FeatureCard({ title, detail }) {
   ]);
 }
 
+function MenuCategory({ category }) {
+  return h("article", { className: "menu-card" }, [
+    h("div", { key: "header", className: "menu-card-header" }, [
+      h("h3", { key: "name" }, category.name),
+      category.highlight ? h("span", { key: "highlight", className: "menu-highlight" }, category.highlight) : null
+    ]),
+    h(
+      "ul",
+      { key: "items", className: "menu-item-list" },
+      category.items.map((item) =>
+        h("li", { key: item.name, className: "menu-item" }, [
+          h("div", { key: "text", className: "menu-item-text" }, [
+            h("span", { key: "item-name", className: "menu-item-name" }, item.name),
+            h("span", { key: "item-detail", className: "menu-item-detail" }, item.detail)
+          ]),
+          h("span", { key: "price", className: "menu-item-price" }, item.price)
+        ])
+      )
+    )
+  ]);
+}
 function ExperienceColumn({ title, items }) {
   return h("article", { className: "experience-column" }, [
     h("h3", { key: "title" }, title),
@@ -552,7 +630,7 @@ export default function App() {
                   key: "secondary",
                   type: "button",
                   className: "hero-secondary",
-                  onClick: () => window.open(language === "sk" ? "./pages/gallery.html" : "./pages/gallery.en.html", "_blank", "noopener,noreferrer")
+                  onClick: () => scrollToSection("menu")
                 },
                 t.hero.ctaSecondary
               )
@@ -591,7 +669,9 @@ export default function App() {
         h(
           "div",
           { key: "features", className: "feature-grid" },
-          t.wellness.features.map((feature) => h(FeatureCard, { key: feature.title, ...feature }))
+          t.wellness.features.map((feature) =>
+            h(FeatureCard, { key: feature.title, ...feature })
+          )
         )
       ]),
       h("section", { key: "dining", id: "dining", className: "section dining-section" }, [
@@ -602,7 +682,22 @@ export default function App() {
         h(
           "div",
           { key: "features", className: "feature-grid" },
-          t.dining.features.map((feature) => h(FeatureCard, { key: feature.title, ...feature }))
+          t.dining.features.map((feature) =>
+            h(FeatureCard, { key: feature.title, ...feature })
+          )
+        )
+      ]),
+      h("section", { key: "menu", id: "menu", className: "section menu-section" }, [
+        h("div", { key: "intro", className: "section-intro" }, [
+          h("h2", { key: "title", className: "section-title" }, t.menu.title),
+          h("p", { key: "text", className: "section-text" }, t.menu.description)
+        ]),
+        h(
+          "div",
+          { key: "grid", className: "menu-grid" },
+          t.menu.categories.map((category) =>
+            h(MenuCategory, { key: category.name, category })
+          )
         )
       ]),
       h("section", { key: "experiences", id: "experiences", className: "section experiences-section" }, [
@@ -652,7 +747,7 @@ export default function App() {
                 key: "primary",
                 type: "button",
                 className: "hero-primary",
-                onClick: () => window.open(language === "sk" ? "./pages/contact.html" : "./pages/contact.en.html", "_blank", "noopener,noreferrer")
+                onClick: () => scrollToSection("contact")
               },
               t.callToAction.primary
             ),
